@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>জালিয়াতি রিপোর্ট ফর্ম</title>
+   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="{{ url_for('static', filename='report.css') }}">
+</head>
+<body>
+  <!--report box header Start----------->
+  
+  <header class="main-header">
+   <div class="logo-area">
+   <a href="index.html"class="home-link"> <i class='bx bx-home-alt'></i></a>
+   </div>
+   <div class="title-area">
+   <span class="text1">Fraud</span>
+   <span class="text2">Check</span>
+   <span class="text3">Systems</span>
+    </div>
+  </header>
+<!--report box header closee------------>
+
+<!--report box start-------------------->
+    <div class="report-box">
+    <header>
+    <h2>Fraud Report Here🚨</h2>
+   <br>
+    <h4>আপনার মতো অন্য কেউ যেনো প্রতারিত না হয় , আপনার সাথে প্রতারণাকারীর তথ্য দিয়ে রিপোর্ট করুন।</h4>
+    </header>
+
+   <form id="fraud-report-form" action="/submit" method="POST" enctype="multipart/form-data">
+
+  <div class="input-group">
+  <label for="fraud-type">Fraud Type(প্রতারণার ধরণ)</label>
+  <select id="fraud-type" name="fraud-type"> 
+  <option value="" selected>একটি প্রকার নির্বাচন করুন (ঐচ্ছিক)</option>
+  <option value="Facebook Fraud">Facebook Fraud</option>
+  <option value="Number Fraud">Number Fraud</option>
+  <option value="Percel Fraud">Percel Fraud</option>
+ <option value="Whatsapp Fraud">Whatsapp Fraud</option>
+  <option value="Instagram Fraud">Instagram Fraud</option>
+  <option value="Others Fraud">Others Fraud</option>
+                </select>
+            </div>
+
+    <div class="input-group">
+   <label id="label-name" for="fraud-name"> Fraudster Name</label>
+   <input type="text" id="fraud-name" name="fraud-name"placeholder="প্রতারণাকারীর নাম যদি থাকে"> 
+   </div>
+
+  <div class="input-group">
+    <label id="label-number" for="fraud-number"> Fraudster Number</label>
+    <input type="text" id="fraud-number" name="fraud-number" placeholder="প্রতারণাকারীর নাম্বার যদি থাকে "> 
+     </div>
+
+    <div class="input-group">
+   <label id="label-location" for="fraud-location">Fraud Location</label>
+    <input type="text" id="fraud-location" name="fraud-location"placeholder="প্রতারণাকারীর ঠিকানা যদি থাকে ">
+    </div>
+
+   <div class="input-group">
+    <label for="fraud-details">Fraudster All Details</label>
+    <textarea id="fraud-details" name="fraud-details" rows="5"placeholder="কিভাবে প্রতারণা করেছে বিস্তারিত লিখুন "></textarea> 
+    </div>
+
+    <div class="input-group">
+    <label for="fraud-screenshot">স্ক্রিনশট/ছবি আপলোড করুন (ঐচ্ছিক)</label>
+   <input type="file" id="fraud-screenshot" name="fraud-screenshot" accept="image/*"multiple>
+   </div>
+
+   <button type="submit" class="submit-btn">রিপোর্ট জমা দিন</button>
+    </form>
+    </div>
+<!--Report box closeee------------------>
+
+<!--Footer Start------------------------>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="brand">
+    <i class='bx bx-shield-quarter footer-icon'></i>
+    <span class="brand-name">Fraud Check Systems</span>
+    </div>
+
+    <p class="small-desc">সহজ রিপোর্টিং • নিরাপদ তথ্য • দ্রুত সহায়তা</p>
+
+    <div class="socials" aria-hidden="true">
+    <a href="#" class="sicon" title="Facebook"><i class='bx bxl-facebook-circle'></i></a>
+    <a href="#" class="sicon" title="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+   <a href="#" class="sicon" title="Instagram"><i class='bx bxl-instagram'></i></a>
+    </div>
+
+    <div class="copyright">© <span id="year"></span> Fraud Check Systems. All rights reserved.</div>
+    <p class="credit">Developed by Efaj Uddin Ahmed Mridul</p>
+  </div>
+</footer>
+
+<!-----------Footer close--------------->
+<script src="{{ url_for('static', filename='report.js') }}"></script>
+</body>
+</html>
+
