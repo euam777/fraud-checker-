@@ -1,0 +1,861 @@
+/*=============header start============*/
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding-top:50px ;
+  background-color: #f0f2f5;
+}
+/* হেডার ডিজাইন */
+.header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #0ea5a4 0%, #16a34a 100%);
+  color: white;
+  padding: 10px 20px;
+  position: fixed;       /* হেডার স্থির থাকবে */
+  top: 0;                /* একদম উপরে থাকবে */
+  left: 0;
+  width: 100%;
+  z-index: 1000;         /* সবকিছুর উপরে থাকবে */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* হালকা shadow সুন্দর লাগবে */
+}
+/* লোগো */
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+/* তিন লাইন মেনু ডিজাইন */
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;          /* <-- 3 লাইনের প্রস্থ */
+  height: 20px;         /* <-- মোট উচ্চতা */
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+.menu-icon span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+}
+/* মেনু বক্স */
+.menu {
+  position: fixed;
+  top: 30px; /* হেডারের নিচ থেকে শুরু */
+  right: -260px; /* প্রথমে লুকানো থাকবে */
+  width: 230px;
+  background: linear-gradient(135deg, #1877F2, #3b5998);
+  box-shadow: -4px 0 10px rgba(0,0,0,0.5); /* বক্সের পাশে ছায়া */
+  border-radius: 0 0 0 12px; /* নিচের দিক সামান্য গোল */
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0;
+  transition: right 0.3s ease, opacity 0.3s ease;
+  opacity: 0; /* শুরুতে অদৃশ্য */
+  z-index: 999;
+}
+/* মেনুর লিংক */
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  border-bottom: 1px solid #444;
+}
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* ডান-বাম স্ক্রল বন্ধ */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+* {
+  box-sizing: border-box;
+}
+header, main, footer {
+  width: 100%;
+  overflow-x: hidden;
+}
+/* মেনু খোলা হলে */
+.menu.show {
+  right: 0;
+  opacity: 1;
+}
+/*===========header close=============*/
+
+/*===========img bg start=============*/
+.main-background {
+  background-image: url('Img/images.png');
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position:center top;
+  min-height: 400px;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .main-background {
+    background-size: cover; 
+    min-height: 400px; 
+    background-position: center top;
+  }
+}
+/*===========img bg close=============*/
+
+/*========search box start============*/
+/* search Box design start*/
+.search-box {
+  width: 90%;
+  max-width: 700px;
+  height: 200px;
+  background: linear-gradient(135deg, #00C6FF, #0072FF);
+  border: 2px solid green;
+  border-radius: 10px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  gap: 10px; 
+}
+/*box text 1st line*/
+.search-box h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+/*box text 2nd line*/
+.search-box h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: white;
+}
+/* Search Container */
+.search-container {
+  width: 100%;
+  max-width: 500px; /* ensure it stays inside box */
+  position: relative;
+  box-sizing: border-box;
+}
+/* Input Field */
+.search-container input {
+  width: 100%;
+  padding: 12px 50px 12px 15px; 
+  border: 2px solid #4CAF50; /* unique border color */
+  border-radius: 15px; /* light rounded corners */
+  font-size: 1rem;
+  box-sizing: border-box;
+/* subtle shadow */
+  box-shadow: 0 2px 5px rgba(76, 175, 80, 0.3); /* green shadow */
+  transition: all 0.3s ease;
+}
+.search-container input:focus {
+  outline: none;
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.5);
+  border-color: #4CAF50;
+}
+/* Colored area inside input (right side) */
+.search-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;  
+  height: 100%;
+  background-color: #4CAF50; /* unique color */
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  pointer-events: none;
+}
+/* Search Button / Icon */
+.search-container .search-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 100%;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  z-index: 1;
+}
+.search-container .search-btn:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+/* Links */
+.links {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* spacing between links */
+  flex-wrap: wrap; /* responsive wrap */
+  font-family: 'Arial', sans-serif;
+  margin-top: 10px;
+}
+.links a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+  transition: color 0.3s ease;
+}
+/* Hover effect */
+.links a:hover {
+  color: #1dd1a1;
+}
+/* Active / Click effect */
+.links a:active {
+  color: #576574;
+}
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .search-box {
+    padding: 15px;
+    height: auto; /* allow box to grow on mobile */
+  }
+  .search-container input {
+    padding: 10px 45px 10px 12px;
+  }
+ .search-container::after {
+    width: 45px;
+  }
+  .search-container .search-btn {
+    width: 45px;
+    font-size: 1.1rem;
+  }
+  .links a {
+    font-size: 0.9rem;
+    margin: 0 5px;
+  }
+}
+/*============search box close=========*/
+
+/*====banner slider section start=====*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.slider-container {
+    position: relative;
+    max-width: 1920px; 
+    width: 100%; 
+    margin: 0px auto; /* উপরে-নিচে মার্জিন যোগ করা হলো */
+    overflow: hidden; 
+    
+    /* স্বাভাবিক বর্ডার এবং শ্যাডো */
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border: none;
+    aspect-ratio: 16 / 5; 
+}
+/* ছবিগুলির র‍্যাপার */
+.slider-wrapper {
+    display: flex;
+    width: 400%; 
+    height: 100%;
+    transition: transform 0.5s ease-in-out; 
+}
+/* প্রতিটি স্লাইড */
+.slide {
+    width: 25%; 
+    height: 100%;
+    object-fit: contain; 
+    background-color: #000; 
+}
+/* নেভিগেশন বাটন স্টাইল (ডিফল্টভাবে লুকান */
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 20px;
+    border-radius: 5px;
+    
+    /* <--- লুকানোর জন্য নতুন স্টাইল ---> */
+    opacity: 0;          
+    visibility: hidden;  
+    transition: all 0.3s ease; 
+}
+.prev-btn {
+    left: 10px;
+}
+.next-btn {
+    right: 10px;
+}
+.prev-btn:hover,
+.next-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+/* ডট নেভিগেশন স্টাইল (ডিফল্টভাবে লুকানো) */
+.dots-container {
+    position: absolute;
+    bottom: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+ /* <--- লুকানোর জন্য নতুন সটাই---> */
+    opacity: 0;          
+    visibility: hidden;  
+    transition: all 0.3s ease;
+}
+.dot {
+    height: 10px; 
+    width: 10px;  
+    margin: 0 4px; 
+    background-color: rgba(255, 255, 255, 0.6); 
+    border: 1px solid #fff; 
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.dot.active {
+    background-color: #fff; 
+    transform: scale(1.1);
+}
+/* জাভাস্ক্রিপ্ট দিয়ে হোভার/টাচে কন্ট্রোল দেখানোর ক্লাস */
+.slider-container.show-controls .prev-btn,
+.slider-container.show-controls .next-btn,
+.slider-container.show-controls .dots-container {
+    opacity: 1;
+    visibility: visible;
+}
+/* রেসপনসিভনেস: ছোট স্ক্রিন (যেমন মোবাইল) এর জন্য */
+@media screen and (max-width: 600px) {
+    .slider-container {
+        width: 100%; 
+        border-radius: 0;
+        margin-top: -50px;
+    }
+    .prev-btn,
+    .next-btn {
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+    .dots-container {
+        bottom: 10px;
+    }
+}
+/*=====banner slider section close====*/
+
+/*======grid box box-title start======*/
+.section-title {
+  text-align: center;
+  margin: 20px auto 5px auto;
+  width: 95%;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #e0f7f4 0%, #f3fdf6 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  align-items: center;
+  height: 40px;
+  line-height: 1.3;
+  padding: 0;
+}
+
+/*--=====grid box box-title close=====*/
+
+/* ========= Grid box Start ========== */
+.test-section {
+  width: 100%;
+  padding: 30px 0;
+}
+.test-section .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px;
+}
+.test-section .box {
+  position: relative;
+  width: 25%; /* ডেস্কটপ ডিফল্ট */
+  max-width: 180px;
+  height: 250px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow:
+    inset 2px 2px 5px rgba(255,255,255,0.8),
+    inset -2px -2px 5px rgba(0,0,0,0.1),
+    0 6px 15px rgba(0,0,0,0.1);
+  border: 4px solid transparent;
+  background-image:
+    linear-gradient(white, white),
+    linear-gradient(145deg, #6a5af9, #00c4ff, #4ade80);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  transition: 0.4s;
+}
+
+.test-section .box:hover {
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.2),
+    inset 2px 2px 8px rgba(255,255,255,0.6),
+    inset -2px -2px 8px rgba(0,0,0,0.1);
+}
+.test-section .box .icon {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1877f2;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.test-section .box .icon img.icon-img {
+  width: 70%; /* ছবির সাইজ নিয়ন্ত্রণ */
+  height: 70%;
+  object-fit: contain;
+.test-section .box .icon i {
+  font-size: 22px;
+  line-height: 1;
+}
+}
+.test-section .box-title {
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.test-section .box-subtitle {
+  font-size: 17px;
+  color: #555;
+  text-align: left;
+  height: 130px;
+  overflow-y: auto;
+  padding: 0 8px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.test-section .box-subtitle::after {
+  content: "⬇";
+  position: sticky;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #4f46e5;
+  background: rgba(79, 70, 229, 0.12);
+  padding: 3px 6px;
+  border-radius: 20px;
+  animation: glow 1.6s infinite ease-in-out;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(4px);
+  }
+}
+.test-section .rounded-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 15px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #0ea5a4, #16a34a);
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+.test-section .rounded-btn:hover {
+  background: linear-gradient(90deg, #16a34a, #0ea5a4);
+  transform: translateX(-50%) scale(1.05);
+}
+/* 📱 মোবাইল (max-width: 448px) */
+@media screen and (max-width: 448px) {
+  .test-section .box {
+    width: 45%; /* এক লাইনে ২টি বক্স */
+    max-width: none;
+  }
+}
+/*===========Grid box close==========*/
+/*=========Advertisement start=========*/
+.bd-border-box {
+  width: 90%;
+  max-width: 1200px;
+  height: auto;
+  min-height: 200px;
+  position: relative;
+  background-image: url('Img/ad.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #111;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 1;
+  border-radius: 16px;
+  margin: 50px;
+  background-color: #f0f0f0; 
+  aspect-ratio: auto 6 / 1; 
+  transform: translateY(-20px);
+
+}
+/* ভিতরের সবুজ বর্ডার */
+.bd-border-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 3px solid #008000;
+  border-radius: 16px;
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+/* মাঝের লাল বর্ডার */
+.bd-border-box::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 3px solid #ff0000;
+  border-radius: 22px;
+  box-sizing: border-box;
+  z-index: -2;
+}
+
+/* বাইরের সবুজ বর্ডার */
+.bd-border-box span {
+  position: absolute;
+  inset: -12px;
+  border: 3px solid #008000;
+  border-radius: 28px;
+  box-sizing: border-box;
+  z-index: -3;
+}
+
+/* উপরের ট্যাগ বা লেবেল শেইপ */
+.label-box {
+  position: absolute;
+  top: -19px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff0000;
+  color: #fff;
+  padding: 6px 25px;
+  font-weight: bold;
+  font-size: 14px;
+  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* লেবেলের সবুজ বর্ডার */
+.label-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: none;
+  border: 3px solid #008000;
+  border-radius: 4px;
+  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
+  z-index: -1;
+}
+
+/* মোবাইল adjustments */
+@media (max-width: 768px) {
+  .bd-border-box {
+    min-height: 150px;
+    margin: 30px auto;
+  }
+
+  .label-box {
+    padding: 6px 25px;
+    font-size: 14px;
+  }
+}
+/*=========Advertisement close=========*/
+
+
+/*=============Foter Start=============*/
+.site-footer {
+  width: 100%;
+  text-align: center;
+  background-color: #2B2F6B;
+  color: #E8EAF6;
+  padding: 18px 0;
+  box-shadow: 0 -4px 20px rgba(43,47,107,0.25);
+  font-family:Arial, sans-serif;
+}
+
+/* 🚀 নতুন Wrapper: ডেস্কটপ লেআউট ও কলাম ম্যানেজ করার জন্য 🚀 */
+.footer-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 16px;
+  /* মোবাইলের জন্য ডিসপ্লে ব্লক (উল্লম্ব) */
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* বাম ও ডান কলামের সাধারণ স্টাইল */
+.footer-column {
+  /* মোবাইলে লুকানো থাকবে */
+  display: none;
+  width: 30%; /* কলামের প্রস্থ */
+  text-align: left;
+  line-height: 1.6;
+  font-size: 14px;
+}
+.footer-column h4 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #FFFFFF;
+    /* ❌ বর্ডার সরানো হয়েছে ❌ */
+    border-bottom: none;
+    padding-bottom: 0;
+    
+    /* 🚀 শিরোনাম সেন্টার 🚀 */
+    text-align: center;
+}
+
+/* 🚀 Contact Us: আইকন এবং স্টাইল 🚀 */
+.footer-column.contact-us h4:before {
+    font-family: "Font Awesome 6 Free"; /* FontAwesome ফন্ট ফ্যামিলি */
+    content: "\f0e0"; /* fa-envelope-open-text আইকনের কোড */
+    font-weight: 900;
+    margin-right: 8px;
+    color: #ffeb3b;
+}
+.footer-column.contact-us {
+    text-align: center; /* ভেতরের টেক্সট সেন্টার */
+}
+.footer-column.contact-us p {
+    text-align: center; /* প্যারামিটারগুলো সেন্টার */
+    margin: 5px 0;
+}
+
+
+/* 🚀 Quick Links: আইকন এবং স্টাইল 🚀 */
+.footer-column.quick-links h4:before {
+    font-family: "Font Awesome 6 Free";
+    content: "\f02d"; /* fa-book-bookmark আইকনের কোড */
+    font-weight: 900;
+    margin-right: 8px;
+    color: #ffeb3b;
+}
+.footer-column.quick-links {
+    text-align: center; /* ভেতরের টেক্সট সেন্টার */
+}
+.footer-column.quick-links ul {
+    text-align: center;
+}
+.footer-column.quick-links ul li {
+    margin: 5px 0;
+}
+
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-column ul li a {
+    color: #D7DAF9;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+}
+.footer-column ul li a:hover {
+    color: #ffeb3b;
+}
+
+
+.footer-inner {
+  max-width: 1100px;
+  /* সেন্টারের কন্টেন্টকে মোবাইলে পুরো প্রস্থ ব্যবহার করতে দিন */
+  width: 100%; 
+  margin: 0 auto; 
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  
+  /* ডান দিকে সরে যাওয়া ফিক্স: শুধু মোবাইলের জন্য এটি কার্যকরী হবে */
+  margin-left: -2px; 
+}
+
+/* ডেস্কটপ লেআউট: 769px এবং তার বেশি */
+@media (min-width: 769px) {
+    .footer-wrapper {
+        flex-direction: row; /* কলামগুলি পাশাপাশি সাজান */
+        align-items: flex-start;
+    }
+    
+    .footer-column {
+        display: block; /* কলাম দুটি দৃশ্যমান করুন */
+        padding-top: 18px; 
+        
+        /* 🚀 স্পেস ফিক্স: সব কলামকে সমানভাবে জায়গা দিন 🚀 */
+        width: auto;
+        flex-grow: 1; /* বাম এবং ডান কলামকে সমানভাবে বাড়তে দিন */
+    }
+    
+    .footer-inner {
+        width: 30%; /* মাঝের কলামের প্রস্থ ছোট করুন */
+        margin-left: -10px; /* ডেস্কটপে এই ফিক্সটি নিষ্প্রয়োজন */
+        padding-top: 18px; 
+        
+        /* 🚀 স্পেস ফিক্স: মাঝের কলামকে সমানভাবে জায়গা দিন 🚀 */
+        flex-grow: 1; /* মাঝের কলামকেও সমানভাবে বাড়তে দিন */
+    }
+    
+    /* কলামগুলির মধ্যে সামান্য দূরত্ব তৈরি করুন */
+    .footer-column:not(:last-child) {
+        margin-right: 20px;
+    }
+}
+
+
+/* ব্র্যান্ড */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.footer-icon {
+  font-size: 16px;
+  background: rgba(232,234,246,0.08);
+  padding: 8px;
+  border-radius: 8px;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* নাম ও ছোট ডিস্ক্রিপশন */
+.brand-name {
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.small-desc {
+  margin: 0;
+  font-size: 13px;
+  color: #D7DAF9;
+  opacity: 0.95;
+}
+
+/* সোশ্যাল আইকন গুলো (ছোট এবং হালকা) */
+.socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.sicon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  color: #E8EAF6;
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease;
+  font-size: 18px;
+}
+
+.sicon:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.08);
+}
+
+/* কপিরাইট */
+.copyright {
+  font-size: 12px;
+  color: #CFCFF6;
+  opacity: 0.9;
+  margin-top: 6px;
+}
+.credit{
+ font-size: 12px;
+  color: #CFCFF6;
+  opacity: 0.9;
+  margin-top: 6px; 
+}
+
+/* মোবাইলে একটু ছোট রাখি */
+@media (max-width: 480px) {
+  /* .footer-inner এর সামান্য ডানে সরে যাওয়া ফিক্সড */
+  .footer-inner {
+      margin-left: -2px;
+  }
+  
+  .brand-name { font-size: 15px; }
+  .footer-icon { 
+    font-size: 14px; 
+    width: initial;
+    height: initial; 
+    padding: 6px;
+    }
+  .sicon { 
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+    border-radius: 8px; 
+    
+  }
+}
+/*=============Foter Close=============*/

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fraud Check System</title>
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+<!--==========Header start===========-->
+  <header class="header">
+    <div class="logo">Fraud Check System</div>
+    <!-- ৩ লাইন মেনু -->
+    <div class="menu-icon" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <!-- Hidden Menu -->
+  <nav class="menu" id="menu">
+    <a href="fbfraud.html">Facebook Fraud Check</a>
+    <a href="bkash/bkash.html">Bkash/Nagad Fraud Check</a>
+    <a href="number/number.html">Number Fraud Check</a>
+    <a href="percel/percel.html">Percel Fraud Check</a>
+    <a href="report/report.html">Report a Fraud</a>
+    <a href="login.html">Login / Signup</a>
+  </nav>
+<!--==========header close============-->
+
+<!--========search box start==========-->
+ <div class="main-background">
+<br>
+<br>
+<br>
+<div class="search-box">
+  <h2>Fraud Checker System</h2>
+  <h4>search here to check Fraud</h4>
+
+  <div class="search-container">
+    <input type="text" placeholder="Search here Number, Facebook, Instagram Fraud">
+    <button class="search-btn">&#128269;</button> <!-- search icon -->
+  </div>
+  <div class="links">
+    <a href="report/report.html">Report a Fraud</a> | <a href="login.html">Login/Signup</a>
+  </div>
+</div>
+</div>
+<!--=========search box close=========-->
+
+
+<!--===banner Slider Section Start===-->
+  <div class="slider-container">
+        <div class="slider-wrapper">
+            <img src="img/check1.jpg" alt="Slide 1" class="slide">
+            <img src="img/check2.jpg" alt="Slide 2" class="slide">
+            <img src="img/check3.jpg" alt="Slide 3" class="slide">
+            <img src="img/check4.jpg" alt="Slide 4" class="slide">
+        </div>
+        <button class="prev-btn">❮</button>
+        <button class="next-btn">❯</button>
+          <div class="dots-container">
+            <span class="dot active" data-slide-index="0"></span>
+            <span class="dot" data-slide-index="1"></span>
+            <span class="dot" data-slide-index="2"></span>
+            <span class="dot" data-slide-index="3"></span>
+        </div>
+    </div>
+<!--===banner slider Section close====-->
+
+<!--====grid box box-title start=====-->
+<div class="section-title">
+  <h2>All In One Fraud Detector</h2>
+</div>
+<!--====grid box box-title close======-->
+
+<!--=========grid box start===========-->
+<div class="test-section">
+      <div class="container" id="boxContainer">
+
+      <div class="box">
+        <div class="icon"><i class="fab fa-facebook-f"></i></div>
+        <h2 class="box-title">Facebook</h2>
+        <div class="box-subtitle">ফেসবুক একটি জনপ্রিয় সোশ্যাল মিডিয়া প্ল্যাটফর্ম...</div>
+        <button class="rounded-btn">Search</button>
+        <a href="fbfraud.html" class="rounded-btn">Search</a>
+      </div>
+
+      <div class="box">
+        <div class="icon">
+  <img src="img/bkash.png" alt="bKash" class="icon-img">
+</div>
+        <h2 class="box-title">Bkash</h2>
+        <div class="box-subtitle">ফেসবুক একটি জনপ্রিয় সোশ্যাল মিডিয়া প্ল্যাটফর্ম...</div>
+        <a href="bkash/bkash.html" class="rounded-btn">Search</a>
+      </div>
+
+      <div class="box">
+        <div class="icon"><i class="fa-solid fa-phone"></i></div>
+        <h2 class="box-title">Number</h2>
+        <div class="box-subtitle">ফেসবুক একটি জনপ্রিয় সোশ্যাল মিডিয়া প্ল্যাটফর্ম...</div>
+        <a href="number/number.html" class="rounded-btn">Search</a>
+      </div>
+
+      <div class="box">
+        <div class="icon"><i class="bx bx-package"></i></div>
+        <h2 class="box-title">Percel</h2>
+        <div class="box-subtitle">ফেসবুক একটি জনপ্রিয় সোশ্যাল মিডিয়া প্ল্যাটফর্ম...</div>
+        <a href="percel/percel.html" class="rounded-btn">Search</a>
+      </div>
+
+      <div class="box">
+        <div class="icon">
+           <img src="img/nagad.png" alt="bKash" class="icon-img">
+        </div>
+        <h2 class="box-title">Nagad</h2>
+        <div class="box-subtitle">ফেসবুক একটি জনপ্রিয় সোশ্যাল মিডিয়া প্ল্যাটফর্ম...</div>
+        <a href="bkash/bkash.html" class="rounded-btn">Search</a>
+      </div>
+
+      <div class="box">
+        <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h2 class="box-title">Report Fraud</h2>
+        <div class="box-subtitle">ফেসবুক একটি জনপ্রিয় সোশ্যাল মিডিয়া প্ল্যাটফর্ম...</div>
+        <a href="report/report.html" class="rounded-btn">Report</a>
+      </div>
+
+      <div class="box">
+        <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h2 class="box-title">Log In</h2>
+        <div class="box-subtitle">ফেসবুক একটি জনপ্রিয় সোশ্যাল মিডিয়া প্ল্যাটফর্ম...</div>
+        <a href="login.html" class="rounded-btn">Log In</a>
+      </div>
+
+      <div class="box">
+        <div class="icon"><i class="fa-solid fa-user"></i></div>
+        <h2 class="box-title">Sign Up</h2>
+        <div class="box-subtitle">ফেসবুক একটি জনপ্রিয় সোশ্যাল মিডিয়া প্ল্যাটফর্ম...</div>
+        <a href="login.html" class="rounded-btn">Sign Up</a>
+      </div>
+    </div>
+  </div>
+  <div class="bd-border-box">
+  <div class="label-box">Advertisement</div>
+  <span></span>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!--=========grid box close===========-->
+
+
+
+
+<!--==========Footer start============-->
+ 
+ <footer class="site-footer">
+  <div class="footer-wrapper"> <div class="footer-column contact-us"> <h4>CONTACT US</h4>
+      <p>Email: support@fraudcheck.com</p>
+      <p>Phone: +8801311-770286</p>
+      <p>Brahmanbaria, Dhaka, Bangladesh</p>
+    </div>
+
+    <div class="footer-inner"> <div class="brand">
+      <i class='bx bx-shield-quarter footer-icon'></i>
+      <span class="brand-name">Fraud Check Systems</span>
+      </div>
+
+      <p class="small-desc">সহজ রিপোর্টিং • নিরাপদ তথ্য • দ্রুত সহায়তা</p>
+
+      <div class="socials" aria-hidden="true">
+      <a href="#" class="sicon" title="Facebook"><i class='bx bxl-facebook-circle'></i></a>
+      <a href="#" class="sicon" title="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+     <a href="#" class="sicon" title="Instagram"><i class='bx bxl-instagram'></i></a>
+      </div>
+
+      <div class="copyright">© <span id="year"></span> Fraud Check Systems. All rights reserved.</div>
+      <p class="credit">Developed by Efaj Uddin Ahmed Mridul</p>
+    </div>
+    
+    <div class="footer-column quick-links"> <h4>QUICK LINKS</h4>
+      <ul>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Report Guidelines</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+  </footer>
+<!--==========Footer close============-->
+
+
+<script src="script.js"></script>
+</body>
+</html>
