@@ -44,9 +44,9 @@
   <div class="label-box">Advertisement</div>
   <span></span>
 </div>
-<!--========Advertisement close========-->
+<!--=======Advertisement close========-->
 
-<!--=========info box start============-->
+<!--========info box start============-->
 <div class="instruction-box">
         <div class="info-header">
             <span class="info-icon">ⓘ</span> 
@@ -230,7 +230,186 @@
   </div>
 <!--=======related tools close========-->
 
+<!--======fb report from start========-->
+ 
+ <div class="fb-fraud-report">
+  <div class="facebook-report-box">
+    <div class="facebook-report-header">
+      <h1>⚠️ বিকাশ ফ্রড রিপোর্ট বক্স</h1>
+      <p> বিকাশ প্রতারকের নাম্বার রিপোর্ট করতে নিচের বাটনে ক্লিক করুন।</p>
+    </div>
 
+    <button class="fb-toggle-btn" id="openForm">রিপোর্ট করতে ক্লিক করুন</button>
+
+    <div class="fb-form-panel" id="reportPanel">
+      <form id="reportForm">
+        <div class="fb-input-group">
+          <label for="fraudName">প্রতারকের নাম</label>
+          <input type="text" id="fraudName" placeholder="প্রতারকের নাম লিখুন" required>
+        </div>
+
+        <div class="fb-input-group">
+          <label for="fraudDesc">প্রতারণার বিবরণ</label>
+          <textarea id="fraudDesc" rows="3" placeholder="সংক্ষেপে কীভাবে প্রতারণা হয়েছে লিখুন" required></textarea>
+        </div>
+
+        <div class="assistance-option">
+          <input type="checkbox" id="needHelp">
+          <label for="needHelp">আমাদের থেকে সহযোগিতা পেতে চান?</label>
+        </div>
+
+        <div class="extra-fields" id="helpFields">
+          <div class="fb-input-group">
+            <label for="userName">আপনার নাম</label>
+            <input type="text" id="userName" placeholder="আপনার নাম লিখুন">
+          </div>
+          <div class="fb-input-group">
+            <label for="userPhone">মোবাইল নাম্বার</label>
+            <input type="tel" id="userPhone" placeholder="01XXXXXXXXX">
+          </div>
+          <div class="fb-input-group">
+            <label for="userAddress">ঠিকানা</label>
+            <input type="text" id="userAddress" placeholder="ঠিকানা লিখুন">
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Submit</button>
+          <button type="button" class="btn cancel" id="cancelBtn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--======fb report from close========-->
+
+<!--=======advantage box start========-->
+<div class="body-use">
+  <header class="header-use">
+    <h1>🔒 Fraud Checker System এর উপকারিতা</h1>
+    <p>আপনার নিরাপদ লেনদেনের সাথী</p>
+  </header>
+
+  <section class="intro">
+    <p>
+      আজকাল অনলাইনে প্রতারণা বেড়েই চলেছে। বিশেষ করে বিকাশ, নগদ, রকেট ইত্যাদি মোবাইল ব্যাংকিং লেনদেনে অনেকেই প্রতারিত হচ্ছেন।  
+      <strong>Fraud Checker System</strong> তৈরি করা হয়েছে যাতে আপনি লেনদেন করার আগে নাম্বার বা অ্যাকাউন্ট যাচাই করে নিতে পারেন।
+    </p>
+  </section>
+
+  <section class="benefits">
+    <h2>🎯 কেন ব্যবহার করবেন?</h2>
+    <div class="benefit-box">
+<div class="benefit" onclick  ="toggleDetails(this)">
+        <img src="Img/bkash.png" alt="Safe Transaction">
+        <h3>১. নিরাপদ লেনদেন</h3>
+        <p>লেনদেনের আগে নাম্বার চেক করে আপনি প্রতারণা থেকে বাঁচতে পারবেন।</p>
+        <div class="details">
+    <p>এখানে ঐ পয়েন্টের বিস্তারিত বর্ণনা লিখবে...</p>
+  </div>
+</div>
+      <div class="benefit" onclick="toggleDetails(this)">
+        <img src="Img/bkash.png" alt="Check History">
+        <h3>২. পূর্বের রিপোর্ট দেখা</h3>
+        <p>যদি কোনো নাম্বার আগে প্রতারণায় যুক্ত থাকে, সেটি আমাদের ডাটাবেজে দেখা যাবে।</p>
+        <div class="details">
+    <p>এখানে ঐ পয়েন্টের বিস্তারিত বর্ণনা লিখবে...</p>
+  </div>
+      </div>
+      <div class="benefit" onclick="toggleDetails(this)">
+        <img src="Img/bkash.png" alt="Report Fraud">
+        <h3>৩. রিপোর্ট করার সুযোগ</h3>
+        <p>আপনি চাইলে প্রতারণার রিপোর্ট করতে পারবেন, যাতে অন্যরাও সতর্ক থাকে।</p>
+        <div class="details">
+    <p>এখানে ঐ পয়েন্টের বিস্তারিত বর্ণনা লিখবে...</p>
+  </div>
+      </div>
+      <div class="benefit" onclick="toggleDetails(this)">
+        <img src="Img/bkash.png" alt="Free Service">
+        <h3>৪. সম্পূর্ণ ফ্রি সেবা</h3>
+        <p>এই সিস্টেমটি সম্পূর্ণ বিনামূল্যে সবার জন্য উন্মুক্ত।</p>
+        <div class="details">
+    <p>এখানে ঐ পয়েন্টের বিস্তারিত বর্ণনা লিখবে...</p>
+  </div>
+      </div>
+      <div class="benefit" onclick="toggleDetails(this)">
+        <img src="Img/bkash.png" alt="Privacy Protected">
+        <h3>৫. গোপনীয়তা সুরক্ষা</h3>
+        <p>আপনার সার্চ ও রিপোর্ট সম্পূর্ণ গোপন রাখা হয়।</p>
+        <div class="details">
+    <p>এখানে ঐ পয়েন্টের বিস্তারিত বর্ণনা লিখবে...</p>
+  </div>
+      </div>
+      <div class="benefit" onclick="toggleDetails(this)">
+        <img src="Img/bkash.png" alt="Community Help">
+        <h3>৬. সচেতন সমাজ গঠন</h3>
+        <p>সবাই মিলে রিপোর্ট করলে প্রতারকদের ধরতে সহজ হয়।</p>
+    <div class="details">
+    <p>এখানে ঐ পয়েন্টের বিস্তারিত বর্ণনা লিখবে আমাদের কম্পিউটার অফিস অ্যাপ্লিকেশন ব্যাচের শিক্ষার্থীরা মনোযোগসহকারে প্র্যাকটিসে ব্যস্ত,
+দক্ষতা অর্জনের এই ধারাবাহিক প্রচেষ্টাই তাদের ভবিষ্যৎ সাফল্যের ভিত্তি গড়ে তুলছে।
+💻 নিয়মিত অনুশীলন ও পরিশ্রমের মাধ্যমে তারা হয়ে উঠছে আরও দক্ষ ও আত্মবিশ্বাসী।
+
+ধন্যবাদ-
+সরাইল অ্যাডভান্সড ফ্রিল্যান্সিং ইনস্টিটিউট
+
+বিস্তারিত জানতে কল করুন ☎: ০১৩০৯৮৪৭৮৭৩
+
+ঠিকানা : সরাইল গার্স্ স্কুল রোড, বড় দেওয়ানপাড়া (এ.রহমান টাওয়ারের দ্বিতীয় তলা) সরাইল, ব্রাহ্মণবাড়িয়া।...</p>
+  </div> 
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>🚀 এখনই চেষ্টা করুন</h2>
+    <p>লেনদেনের আগে মাত্র এক ক্লিকে নাম্বার চেক করুন এবং প্রতারণা থেকে নিরাপদ থাকুন।</p>
+    <a href="index.html" class="btn">Fraud Checker খুলুন</a>
+  </section>
+</div>
+<!--=======advantage box close========-->
+
+<!--====bug-report-section start======-->
+<div class="bug-report-section">
+<div class="body1">
+<div class="container-bug-report">
+        <div class="initial-card" id="openFormCard">
+            <div class="icon-circle">
+                <span class="bug-icon">🐞</span>
+            </div>
+            <h2>Report a Bug</h2>
+            <p>Click here to report any technical issue or bug you encounter.</p>
+        </div>
+
+        <div class="bug-report-card hidden" id="bugReportForm">
+            <header class="card-header">
+                <h2>Report a Bug</h2>
+                <span class="signal-icon"></span> 
+            </header>
+            <form class="report-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name"  placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Mobile Number</label>
+                    <input type="email" id="email" name="email" placeholder="Your valid mobile number">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description <span class="required-text">(required)</span></label>
+                    <textarea id="description" name="description" rows="4" placeholder="Add to cart button not working"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Send Bug Report</button>
+                    <button type="button" class="btn-cancel" id="cancelButton">Cancel</button> 
+                </div>
+            </form>
+        </div>
+    </div>
+  </div> 
+</div>
+
+<!--====bug-report-section close======-->
 
 <!--===========Footer Start===========-->
 
@@ -273,4 +452,4 @@
 <!--==========Search box Close=========-->
 <script src="fbfraud.js"></script>
 </body>
-</html>
+ </html>
