@@ -122,6 +122,144 @@ function toggleDetails(element) {
 
 //========advantage box close=========//
 
+//--========review box start=========-//
+// ড্রয়ার টগল করার ফাংশন
+function toggleDrawer(button) {
+    const card = button.closest('.adaptive-card');
+    const drawer = card.querySelector('.card-drawer');
+    const form = card.querySelector('.review-form-container');
+
+    // ড্রয়ার টগল করুন
+    drawer.classList.toggle('open');
+    button.classList.toggle('active');
+
+    // যদি ফর্মটি খোলা থাকে, ড্রয়ার বন্ধ করার সময় ফর্মটিও বন্ধ করে দিন
+    if (!drawer.classList.contains('open') && form.classList.contains('form-open')) {
+        form.classList.remove('form-open');
+    }
+
+    // টেক্সট পরিবর্তন (ঐচ্ছিক)
+    const viewMoreText = card.querySelector('.view-more-text');
+    if (drawer.classList.contains('open')) {
+        viewMoreText.innerHTML = 'বন্ধ করুন <i class="fas fa-chevron-up"></i>';
+    } else {
+        viewMoreText.innerHTML = 'আরো দেখুন ও রিভিউ দিন <i class="fas fa-chevron-down"></i>';
+    }
+}
+
+// রিভিউ ফর্ম টগল করার ফাংশন
+function toggleReviewForm(formId) {
+    const formContainer = document.getElementById(formId);
+    formContainer.classList.toggle('form-open');
+    
+    // ফর্ম খুললে এটি স্ক্রিন ভিউতে নিয়ে যাওয়া
+    if (formContainer.classList.contains('form-open')) {
+        setTimeout(() => {
+            formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 450); // অ্যানিমেশনের জন্য সামান্য দেরি 
+    }
+}
+
+// ছবি প্রিভিউ দেখানোর ফাংশন
+function previewImage(event) {
+    const file = event.target.files[0];
+    const preview = document.getElementById('imagePreview');
+    
+    if (file) {
+        // ফাইল রিডার ব্যবহার করে ছবিটির URL তৈরি করা
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.classList.remove('hidden-preview'); // প্রিভিউ দেখানোর জন্য ক্লাস সরিয়ে দেওয়া
+        }
+        
+        reader.readAsDataURL(file); // ছবিটি ডেটা URL হিসেবে পড়া
+    } else {
+        // যদি ব্যবহারকারী নির্বাচন বাতিল করে, তবে প্রিভিউ লুকিয়ে ফেলা
+        preview.src = "";
+        preview.classList.add('hidden-preview');
+    }
+}
+
+//--========review box close=========-//
+
+//--======top 3 fraud box start=======-//
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".btn-fraud");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const id = btn.getAttribute("id");
+      const clicked = document.getElementById(`report${id}`);
+      const allReports = document.querySelectorAll(".report-box");
+      const container = document.querySelector(".fraudster-container");
+
+      // 🔒 আগের সব রিপোর্ট বন্ধ করো
+      allReports.forEach((r) => {
+        if (r !== clicked) {
+          r.classList.remove("active");
+          r.style.display = "none";
+        }
+      });
+
+      // ✅ ক্লিক করা রিপোর্ট টগল করো
+      const isActive = clicked.classList.toggle("active");
+
+      // 👉 যদি ডেস্কটপ ভার্সন হয়
+      if (window.innerWidth > 768) {
+        if (isActive) {
+          clicked.style.display = "block";
+          // প্রথমে আগের জায়গা থেকে সরাও
+          container.insertAdjacentElement("afterend", clicked);
+
+          // ফুল প্রস্থে দেখাও
+          clicked.style.width = "90%";
+          clicked.style.maxHeight = "none";
+          clicked.style.margin = "20px auto";
+          clicked.style.opacity = "1";
+          clicked.style.background = "#f5f7ff";
+          clicked.style.borderRadius = "12px";
+          clicked.style.boxShadow = "0 3px 10px rgba(0,0,0,0.1)";
+          clicked.style.padding = "20px";
+          clicked.scrollIntoView({ behavior: "smooth" });
+        } else {
+          clicked.style.display = "none";
+        }
+      }
+
+      // 👉 যদি মোবাইল ভার্সন হয়
+      else {
+        if (isActive) {
+          clicked.style.display = "block";
+          clicked.style.maxHeight = "400px";
+          clicked.style.opacity = "1";
+        } else {
+          clicked.style.display = "none";
+        }
+      }
+    });
+  });
+
+  // ✅ স্ক্রল করলে বাইরে গেলে বন্ধ হবে
+  window.addEventListener("scroll", () => {
+    const activeBox = document.querySelector(".report-box.active");
+    if (activeBox) {
+      const rect = activeBox.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        activeBox.classList.remove("active");
+        activeBox.style.display = "none";
+      }
+    }
+  });
+});
+
+//--======top 3 fraud box close=======-//
+
+
+
 //======bug-report-section start=======//
 
 // যে উপাদানগুলিতে ক্লিক ইভেন্টগুলি যুক্ত করতে হবে সেগুলিকে নির্বাচন করুন
