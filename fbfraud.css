@@ -349,14 +349,15 @@ body {
     border: solid blue 1px;
 
     /* ✅ সেন্টারে রাখার সঠিক উপায় */
-    margin: -20px auto 20px auto; /* top -20px, left/right auto, bottom 20px */
+    margin: -40px auto 20px auto; /* top -20px, left/right auto, bottom 20px */
+    margin-bottom: 1px;
     box-sizing: border-box; /* margin + padding গণনায় রাখবে */
 }
 /* হেডার (কীভাবে ব্যবহার করবেন) */
 .info-header {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: #1e88e5; 
     font-size: 18px;
     font-weight: bold;
@@ -864,7 +865,8 @@ input:focus, textarea:focus {
 }
 
 .benefits {
-  padding: 20px;
+  padding: 10px;
+  
   text-align: center;
 }
 
@@ -914,8 +916,8 @@ input:focus, textarea:focus {
 .cta {
   text-align: center;
   background: #eef3ff;
-  padding: 40px 20px;
-  margin-top: 30px;
+  padding: 20px 20px;
+  margin-top: 20px;
   border-top: 2px solid #007bff;
 }
 
@@ -971,6 +973,636 @@ input:focus, textarea:focus {
 
 /*========advantage box close=========*/
 
+/*===========review box start=========*/
+:root {
+    --primary-color: #00bcd4; /* আধুনিক সায়ান */
+    --secondary-color: #ffc107; /* অ্যাকসেন্ট হলুদ */
+    --text-color: #333;
+    --bg-light: #f7f7f7;
+}
+
+.review-body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    
+}
+
+.header-content {
+    margin-bottom: 50px;
+    padding: 20px 0;
+    text-align: center;
+    /* একটি হালকা ব্যাকগ্রাউন্ড কালার যোগ করা হলো */
+    background-color: #e3f2fd; /* Light Blue background for emphasis */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.header-content h1 {
+    font-size: 2.8rem; /* হেডিং এর আকার বাড়ানো হয়েছে */
+    color: #0d47a1; /* গাঢ় নীল রঙ */
+    margin-bottom: 15px;
+    line-height: 1.2;
+    font-weight: 800; /* ফন্ট ওয়েট বাড়ানো হয়েছে */
+    /* টেক্সট শ্যাডো যোগ করা হয়েছে */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); 
+}
+
+.header-content h1 strong {
+    color: #00c853; /* সবুজ রঙ - সুরক্ষার প্রতীক */
+    font-weight: inherit;
+}
+
+.header-content .subtitle {
+    font-size: 1.2rem;
+    color: #455a64; /* একটু গাঢ় সাবটাইটেল রঙ */
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* রেসপনসিভনেস */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 2rem;
+    }
+    .header-content .subtitle {
+        font-size: 1rem;
+    }
+}
+
+
+.testimonial-wrapper {
+    width: 90%;
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+.adaptive-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease-in-out;
+    overflow: hidden; /* ড্রয়ার লুকিয়ে রাখার জন্য */
+}
+
+/* --- কার্ডের মূল ডিসপ্লে --- */
+.card-display {
+    display: flex;
+    padding: 25px;
+    gap: 20px;
+}
+
+/* রিভিউকারীর মেটা অংশ */
+.reviewer-meta {
+    flex: 0 0 150px; /* ডেস্কটপে বামদিকে নির্দিষ্ট স্থান */
+    text-align: center;
+}
+
+.reviewer-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.reviewer-name {
+    font-weight: 700;
+    margin: 10px 0 2px;
+    color: var(--primary-color);
+}
+
+.reviewer-title {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin: 0;
+}
+
+/* রিভিউ টেক্সট অংশ */
+.review-content {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.star-rating {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.star-rating .rating-value {
+    color: #888;
+    font-size: 0.8em;
+    margin-right: 8px; 
+    margin-left: 0; 
+    font-weight: 600;
+}
+
+.main-quote {
+    font-style: italic;
+    font-size: 1.50em;
+    line-height: 1.6;
+    margin-top: 0;
+}
+
+/* --- ড্রয়ার টগল বাটন --- */
+.btn-toggle {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    padding: 8px 0;
+    cursor: pointer;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+    text-align: right;
+    transition: color 0.3s;
+}
+
+.btn-toggle:hover {
+    color: #008c9e;
+}
+
+.btn-toggle i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* ড্রয়ার খোলা থাকলে অ্যারো উপরে ঘুরবে */
+.btn-toggle.active i {
+    transform: rotate(180deg);
+}
+
+/* --- ড্রয়ার অংশ (লুকানো স্লাইড) --- */
+.card-drawer {
+    /* শুরুতে বন্ধ */
+    max-height: 0; 
+    transition: max-height 0.6s ease-in-out;
+    background-color: var(--bg-light);
+    border-top: 1px solid #eee;
+}
+
+.card-drawer.open {
+    /* খোলার সময় উচ্চতা বাড়ানো */
+    max-height: 800px; 
+}
+
+.drawer-content {
+    padding: 25px;
+}
+
+.drawer-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.action-btn i {
+    margin-right: 8px;
+}
+
+.btn-view-all {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-view-all:hover {
+    background-color: #008c9e;
+    transform: translateY(-1px);
+}
+
+.btn-write {
+    background-color: #e9ecef;
+    color: var(--text-color);
+}
+
+.btn-write:hover {
+    background-color: #dee2e6;
+    transform: translateY(-1px);
+}
+
+/* --- রিভিউ ফর্ম স্টাইল --- */
+.review-form-container {
+    max-height: 0; 
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out, margin 0.4s ease-out; 
+    
+    background-color: white;
+    border-radius: 8px;
+    
+    padding: 0; 
+    margin-top: 0; 
+    border: none; 
+}
+
+.review-form-container.form-open {
+    max-height: 500px;
+    
+    padding: 15px; 
+    margin-top: 15px;
+    
+    border: 1px solid #eee; 
+}
+
+/* ফর্মের ভেতরের লেখার মার্জিন অ্যাডজাস্ট করুন (ঐচ্ছিক) */
+.review-form-container.form-open h4 {
+    margin-top: 0; 
+    margin-bottom: 15px; 
+}
+
+
+.review-form-container input[type="text"],
+.review-form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #43a047;
+}
+
+/* ⭐⭐⭐ স্টার রেটিং স্টাইল ফিক্সড ⭐⭐⭐ */
+.form-rating-stars-wrapper {
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start; 
+    margin-bottom: 15px;
+}
+
+/* 💡 ইউজার ফিক্স: মার্জিন-বটম নেগেটিভ দিয়ে উল্লম্ব সারিবদ্ধকরণ নিশ্চিত করা হলো */
+.rating-label-text {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-right: 5px; 
+    margin-bottom: -5px; 
+}
+.rating-stars-input {
+    direction: rtl; 
+    display: inline-block;
+}
+
+.rating-stars-input input { display: none; }
+
+.rating-stars-input .star-label {
+    color: #ddd;
+    font-size: 1.5rem;
+    padding: 0 2px;
+    cursor: pointer;
+    transition: color 0.2s;
+    line-height: 1; 
+    display: inline-block;
+    margin-bottom: 2px;
+}
+
+.rating-stars-input input:checked ~ .star-label,
+.rating-stars-input .star-label:hover,
+.rating-stars-input .star-label:hover ~ .star-label {
+    color: var(--secondary-color);
+}
+
+
+/* --- রেসপনসিভনেস (Responsive Design) --- */
+@media (max-width: 767px) {
+    .card-display {
+        flex-direction: column; 
+        text-align: center;
+        padding: 20px;
+    }
+ .testimonial-wrapper {
+    width: 90%;
+    max-width: 100%;
+    
+}
+    
+    .reviewer-meta {
+        flex: none;
+        margin-bottom: 15px;
+    }
+
+    .reviewer-avatar {
+        width: 70px;
+        height: 70px;
+    }
+
+    .review-content {
+        text-align: center;
+        margin-top: -20px;
+    }
+    
+    .main-quote {
+        font-size: 1.05em;
+    }
+
+    .btn-toggle {
+        text-align: center; 
+    }
+
+    .drawer-actions {
+        flex-direction: column; 
+        gap: 10px;
+    }
+    
+    /* মোবাইলে রেটিংকে মাঝখানে আনতে */
+    .form-rating-stars-wrapper {
+        justify-content: flex-start; 
+    }
+}
+
+/* --- নতুন ছবি আপলোড স্টাইল --- */
+.form-group-image {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column; /* উপাদানগুলি উল্লম্বভাবে সাজাতে */
+    align-items: flex-start; /* উপাদানগুলি বাম দিকে সারিবদ্ধ করতে */
+  
+  
+}
+
+/* ফাইল ইনপুটটি লুকিয়ে রাখা, লেবেলটি বাটনের মতো ব্যবহার করার জন্য */
+#reviewImageUpload {
+    display: none; 
+}
+
+/* লেবেলটিকে বাটনের মতো স্টাইল করা */
+.image-upload-label {
+    width: 100%;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #e9ecef;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: background-color 0.3s;
+    margin-bottom: 10px; /* প্রিভিউ থেকে দূরত্ব */
+  
+}
+
+.image-upload-label:hover {
+    background-color: #dee2e6;
+}
+
+.image-upload-label i {
+    margin-right: 5px;
+}
+
+/* ছবি প্রিভিউ স্টাইল */
+#imagePreview {
+    max-width: 100%;
+    max-height: 150px; /* প্রিভিউ এর উচ্চতা সীমিত রাখা */
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+}
+
+/* যদি কোনো ছবি আপলোড না হয়, তখন প্রিভিউ লুকানো থাকবে */
+.hidden-preview {
+    display: none;
+}
+
+/*===========review box close=========*/
+
+/*--======top 3 fraud box start=======*/
+:root {
+  --bg: #f5f7fb;
+  --card: #fff;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --gold: #facc15;
+  --silver: #9ca3af;
+  --bronze: #d97706;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #ef4444;
+}
+
+.body-top-fraud {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.top-fraudsters {
+  text-align: center;
+  max-width: 100%;
+  width: 90%;
+  padding: 40px 20px;
+}
+
+.top-fraudsters h1 {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.subtitle-fraud {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.fraudster-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 40px;
+  flex-wrap: nowrap;
+}
+
+.fraudster-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  width: 280px;
+  position: relative;
+  box-shadow: 0 6px 20px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.first{
+  transform: scale(1.1);
+  border-top: 6px solid var(--gold);
+}
+.second{
+  border-top: 6px solid var(--silver);
+}
+.third {
+  border-top: 6px solid var(--bronze);
+}
+
+.badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 26px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+h2 {
+  margin: 10px 0 4px;
+  font-size: 18px;
+}
+
+.username {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.reason {
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.meta {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.btn-fraud {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  transition: background 0.3s;
+}
+
+.btn-fraud:hover {
+  background: #dc2626;
+}
+
+@media (max-width: 768px) {
+  .fraudster-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .first {
+    transform: none;
+  }
+}
+
+/* Report box hidden initially */
+/* Report box design */
+.report-box {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  background: #f9fafc;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-top: 0;
+  padding: 0 15px;
+  transition: all 0.4s ease;
+}
+
+.report-box.active {
+  max-height: 400px; /* রিপোর্ট বেশি হলে সামঞ্জস্য করো */
+  opacity: 1;
+  margin-top: 15px;
+  padding: 15px;
+  
+}
+
+/* প্রতিটা রিপোর্ট আইটেম সুন্দর বক্সের ভিতরে */
+.report-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: report; /* 🔢 Counter শুরু */
+}
+
+.report-box li {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #ff3d3d;
+  border-radius: 8px;
+  padding: 12px 14px 12px 55px; /* বাঁ দিকের জায়গা রাখো নম্বরের জন্য */
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  position: relative;
+  counter-increment: report; /* প্রতিটি li-তে ১ করে বাড়বে */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 🎯 এখানে ম্যাজিক */
+.report-box li::before {
+  content: "R" counter(report);
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ff3d3d;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  border-radius: 6px;
+  padding: 4px 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* hover effect */
+.report-box li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+/*--======top 3 fraud box close=======*/
+
 /*=====bug-report-section start=======*/
 .bug-report-section * {
   box-sizing: border-box;
@@ -984,8 +1616,6 @@ input:focus, textarea:focus {
     display: flex;
     justify-content: center;
     width: 100%;
-   
-}
 
 .container-bug-report {
     width: 100%;
@@ -1206,243 +1836,232 @@ input::placeholder {
 
 
 /*============Foter Start=============*/
-.site-footer {
+/* ========================================= */
+/* 🚀 Responsive Footer Styles START 🚀 */
+/* ========================================= */
+
+.responsive-site-footer {
   width: 100%;
-  text-align: center;
-  background-color: #2B2F6B;
-  color: #E8EAF6;
-  padding: 18px 0;
-  box-shadow: 0 -4px 20px rgba(43,47,107,0.25);
-  font-family:Arial, sans-serif;
+  background-color: #2B2F6B; /* ডিপ ব্লু ব্যাকগ্রাউন্ড */
+  color: #E8EAF6; /* লাইট টেক্সট কালার */
+  font-family: 'Arial', sans-serif;
+  padding: 30px 0 0 0; /* প্যাডিং নিচে শূন্য, কারণ বটম বারে প্যাডিং থাকবে */
 }
 
-/* 🚀 নতুন Wrapper: ডেস্কটপ লেআউট ও কলাম ম্যানেজ করার জন্য 🚀 */
-.footer-wrapper {
-  max-width: 1100px;
+/* কন্টেইনার: কলাম লেআউটের জন্য */
+.footer-container {
+  max-width: 1200px;
   margin: 0 auto;
-  width: 100%;
+  padding: 0 20px;
   display: flex;
+  flex-wrap: wrap; /* ছোট স্ক্রিনে নিচে নামানোর জন্য */
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 16px;
-  /* মোবাইলের জন্য ডিসপ্লে ব্লক (উল্লম্ব) */
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
+  gap: 30px; /* কলামগুলির মধ্যে দূরত্ব */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 30px;
 }
 
-/* বাম ও ডান কলামের সাধারণ স্টাইল */
+/* কলামগুলির সাধারণ স্টাইল */
 .footer-column {
-  /* মোবাইলে লুকানো থাকবে */
-  display: none;
-  width: 30%; /* কলামের প্রস্থ */
-  text-align: left;
-  line-height: 1.6;
-  font-size: 14px;
+  flex-grow: 1;
+  padding: 0;
+  min-width: 200px; /* কলামের সর্বনিম্ন প্রস্থ */
 }
+
 .footer-column h4 {
-    margin-top: 0;
-    font-size: 16px;
-    color: #FFFFFF;
-    /* ❌ বর্ডার সরানো হয়েছে ❌ */
-    border-bottom: none;
-    padding-bottom: 0;
-    
-    /* 🚀 শিরোনাম সেন্টার 🚀 */
-    text-align: center;
-}
-
-/* 🚀 Contact Us: আইকন এবং স্টাইল 🚀 */
-.footer-column.contact-us h4:before {
-    font-family: "Font Awesome 6 Free"; /* FontAwesome ফন্ট ফ্যামিলি */
-    content: "\f0e0"; /* fa-envelope-open-text আইকনের কোড */
-    font-weight: 900;
-    margin-right: 8px;
-    color: #ffeb3b;
-}
-.footer-column.contact-us {
-    text-align: center; /* ভেতরের টেক্সট সেন্টার */
-}
-.footer-column.contact-us p {
-    text-align: center; /* প্যারামিটারগুলো সেন্টার */
-    margin: 5px 0;
-}
-
-
-/* 🚀 Quick Links: আইকন এবং স্টাইল 🚀 */
-.footer-column.quick-links h4:before {
-    font-family: "Font Awesome 6 Free";
-    content: "\f02d"; /* fa-book-bookmark আইকনের কোড */
-    font-weight: 900;
-    margin-right: 8px;
-    color: #ffeb3b;
-}
-.footer-column.quick-links {
-    text-align: center; /* ভেতরের টেক্সট সেন্টার */
-}
-.footer-column.quick-links ul {
-    text-align: center;
-}
-.footer-column.quick-links ul li {
-    margin: 5px 0;
-}
-
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.footer-column ul li a {
-    color: #D7DAF9;
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.2s;
-}
-.footer-column ul li a:hover {
-    color: #ffeb3b;
-}
-
-
-.footer-inner {
-  max-width: 1100px;
-  /* সেন্টারের কন্টেন্টকে মোবাইলে পুরো প্রস্থ ব্যবহার করতে দিন */
-  width: 100%; 
-  margin: 0 auto; 
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  
-  /* ডান দিকে সরে যাওয়া ফিক্স: শুধু মোবাইলের জন্য এটি কার্যকরী হবে */
-  margin-left: -2px; 
-}
-
-/* ডেস্কটপ লেআউট: 769px এবং তার বেশি */
-@media (min-width: 769px) {
-    .footer-wrapper {
-        flex-direction: row; /* কলামগুলি পাশাপাশি সাজান */
-        align-items: flex-start;
-    }
-    
-    .footer-column {
-        display: block; /* কলাম দুটি দৃশ্যমান করুন */
-        padding-top: 18px; 
-        
-        /* 🚀 স্পেস ফিক্স: সব কলামকে সমানভাবে জায়গা দিন 🚀 */
-        width: auto;
-        flex-grow: 1; /* বাম এবং ডান কলামকে সমানভাবে বাড়তে দিন */
-    }
-    
-    .footer-inner {
-        width: 30%; /* মাঝের কলামের প্রস্থ ছোট করুন */
-        margin-left: -10px; /* ডেস্কটপে এই ফিক্সটি নিষ্প্রয়োজন */
-        padding-top: 18px; 
-        
-        /* 🚀 স্পেস ফিক্স: মাঝের কলামকে সমানভাবে জায়গা দিন 🚀 */
-        flex-grow: 1; /* মাঝের কলামকেও সমানভাবে বাড়তে দিন */
-    }
-    
-    /* কলামগুলির মধ্যে সামান্য দূরত্ব তৈরি করুন */
-    .footer-column:not(:last-child) {
-        margin-right: 20px;
-    }
-}
-
-
-/* ব্র্যান্ড */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
-
-.footer-icon {
   font-size: 16px;
-  background: rgba(232,234,246,0.08);
-  padding: 8px;
-  border-radius: 8px;
-  color: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  color: #FFEB3B; /* হলুদ শিরোনাম */
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 8px;
+  letter-spacing: 0.5px;
 }
 
-/* নাম ও ছোট ডিস্ক্রিপশন */
-.brand-name {
-  font-size: 16px;
-  color: #FFFFFF;
-}
-
-.small-desc {
+/* কুইক লিংকস স্টাইল */
+.links-group ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  font-size: 13px;
-  color: #D7DAF9;
-  opacity: 0.95;
 }
 
-/* সোশ্যাল আইকন গুলো (ছোট এবং হালকা) */
+.links-group ul li {
+  margin-bottom: 8px;
+}
+
+.links-group ul li a {
+  color: #D7DAF9;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.links-group ul li a:hover {
+  color: #FFEB3B;
+  text-decoration: underline;
+}
+
+/* যোগাযোগ স্টাইল */
+.contact-us-group p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.contact-us-group p a {
+  color: #D7DAF9;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-us-group p a:hover {
+  color: #FFEB3B;
+}
+
+/* ব্র্যান্ডিং কলাম (মাঝের কলাম) - মোবাইলে এটি শুরুতে থাকবে */
+.branding-info {
+  min-width: 250px;
+  text-align: center;
+  order: -1; /* মোবাইলে এটি প্রথমে দেখানোর জন্য */
+  width: 100%; /* মোবাইলে পুরো প্রস্থ নেবে */
+}
+.branding-info .brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.branding-info .footer-icon {
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+.branding-info .brand-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+.branding-info .small-desc {
+  margin: 10px 0 15px 0;
+}
+.branding-info h4 {
+  display: none; /* ব্র্যান্ডিং কলামে শিরোনাম লুকানো */
+}
+
+
+/* সোশ্যাল আইকন স্টাইল */
 .socials {
   display: flex;
-  gap: 10px;
-  margin-top: 4px;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .sicon {
   display: inline-flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: #E8EAF6;
+  font-size: 20px;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.04);
-  color: #E8EAF6;
-  text-decoration: none;
-  transition: transform 0.15s ease, background 0.15s ease;
-  font-size: 18px;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .sicon:hover {
-  transform: translateY(-3px);
-  background: rgba(255,255,255,0.08);
+  background: #FFEB3B;
+  color: #2B2F6B;
+  transform: translateY(-2px);
 }
 
-/* কপিরাইট */
-.copyright {
+/* বটম বার (কপিরাইট) */
+.footer-bottom-bar {
+  text-align: center;
+  padding: 15px 20px;
+  background-color: #24275E; /* সামান্য গাঢ় শেড */
   font-size: 12px;
-  color: #CFCFF6;
-  opacity: 0.9;
-  margin-top: 6px;
+  line-height: 1.6;
 }
-.credit{
- font-size: 12px;
-  color: #CFCFF6;
+.footer-bottom-bar .credit {
+  margin: 5px 0 0 0;
+  opacity: 0.8;
+}
+.footer-bottom-bar .copyright {
+  margin: 0;
   opacity: 0.9;
-  margin-top: 6px; 
 }
 
-/* মোবাইলে একটু ছোট রাখি */
-@media (max-width: 480px) {
-  /* .footer-inner এর সামান্য ডানে সরে যাওয়া ফিক্সড */
-  .footer-inner {
-      margin-left: -15px;
+
+/* ========================================= */
+/* 💻 Desktop (768px এবং তার বেশি) 💻 */
+/* ========================================= */
+@media (min-width: 768px) {
+  .footer-container {
+    justify-content: space-around;
+    text-align: left;
   }
   
-  .brand-name { font-size: 15px; }
-  .footer-icon { 
-    font-size: 14px; 
-    width: initial;
-    height: initial; 
-    padding: 6px;
-    }
-  .sicon { 
-    width: 34px;
-    height: 34px;
-    font-size: 16px;
-    border-radius: 8px; 
-    
+  .footer-column {
+    flex-basis: 30%; /* কলামগুলির প্রস্থ */
+    max-width: 33%;
+  }
+
+  /* ডেস্কটপে কলাম অর্ডার পরিবর্তন */
+  .branding-info {
+    order: 0; /* স্বাভাবিক অর্ডারে ফিরিয়ে আনুন */
+    text-align: left;
+    width: auto;
+    flex-basis: 35%; /* ব্র্যান্ডিং কলামকে একটু বেশি জায়গা দিন */
+    max-width: 40%;
+  }
+  
+  /* ডেস্কটপে ব্র্যান্ডিং কলামের ভেতরের অংশ বামে সরানো */
+  .branding-info .brand {
+    justify-content: flex-start;
+  }
+  .socials {
+    justify-content: flex-start;
+  }
+
+  /* কুইক লিংকস এবং যোগাযোগের জন্য লেআউট সামঞ্জস্য */
+  .links-group {
+    order: 1;
+    text-align: left;
+  }
+  .contact-us-group {
+    order: 2;
+    text-align: left;
   }
 }
-/*=============Foter Close=============*/
+
+
+/* ========================================= */
+/* 📱 Mobile (767px এবং তার কম) 📱 */
+/* ========================================= */
+@media (max-width: 767px) {
+  .footer-container {
+    flex-direction: column; /* কলামগুলি উল্লম্বভাবে সাজান */
+    align-items: center;
+    text-align: center;
+  }
+
+  /* মোবাইলে সব কলাম পুরো প্রস্থ নেবে */
+  .footer-column {
+    width: 100%;
+    max-width: 90%;
+  }
+  
+  /* কুইক লিংকস-এ সেন্টার করার জন্য */
+  .links-group ul {
+    text-align: center;
+  }
+  
+  /* যোগাযোগের তথ্য মাঝখানে আনার জন্য */
+  .contact-us-group p {
+    text-align: center;
+  }
+}
+
+
+/*============Foter Close=============*/
