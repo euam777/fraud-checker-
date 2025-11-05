@@ -1,246 +1,432 @@
-/*============Header Start=============*/
+/*===========Header Start=============*/
 html,body {
  overflow-x: hidden;
  width:100%;
  max-width:100%;
+ margin: 0;
+ padding: 0;
+ background-color: #f0f2f5;
  }
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background:  #f0f2f5;
-  
+.body-header {
+    font-family: 'Baloo Da 2', sans-serif; 
 }
-/* ফিক্সড হেডার ওভারল্যাপ এড়ানোর জন্য কনটেন্ট স্পেসার */
-.content-spacer {
-    /* হেডারের উচ্চতা 60px ধরে নিয়ে, 60px প্যাডিং যোগ করা হলো */
-    padding-top: 60px; 
+:root {
+    --header-height: 65px;
+    --transition-speed: 0.3s;
+    --glass-background: rgba(255, 255, 255, 0.2); 
+    --text-color: #333;
+    --glow-color: #4A90E2; 
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --sidebar-bg-color: rgba(220, 235, 255, 0.9);
+    --sidebar-bg-gradient-end: rgba(255, 255, 255, 0.8);
+    --sidebar-text-color: #1a1a1a;
+    --sidebar-highlight-color: #007bff;
+    --sidebar-shadow-outset: rgba(0, 0, 0, 0.1);
+    --sidebar-border-color-light: rgba(0, 0, 0, 0.08);
 }
-/* 🚀 ইউনিক হেডার স্টাইল 🚀 */
-.unique-header {
-    /* ফিক্সড হেডার */
+.fixed-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(135deg, #00E676, #00BFA5);
-/* হোম আইকন বামে এবং লোগো ডানে সরাতে */
+    height: var(--header-height);
+    z-index: 1000;
+    background: var(--glass-background);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px var(--shadow-color);
+    transition: background-color var(--transition-speed);
+    padding: 0 15px;
+    box-sizing:border-box;
+}
+.header-content-wrapper {
     display: flex;
-    justify-content: flex-start; 
+    justify-content: space-between;
     align-items: center;
-    height: 60px;
-    padding: 0 5px; 
-    color: #ffffff; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
-    z-index: 1000; 
+    height: 100%;
 }
-
-/* হোম আইকন লিংক স্টাইল - বাম দিকে থাকবে */
-.home-icon-link {
-    color: #ffffff; /* আইকনের রং সাদা */
-    font-size: 1.4em; /* আইকনের আকার */
-    padding: 0 0;
-    margin-left: 0;
-    margin-right: 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+.center-section,
+.desktop-only {
+    display: none; 
 }
-
-.home-icon-link:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* হোভার এফেক্ট */
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo-container {
+    width: 50px; 
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .logo {
-    color: black; /* 🌟 ইউনিক কালার 🌟 */
-    font-size: 1.5em; 
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    text-align: right; 
-    margin-right: 35px;
-    margin-left: auto;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
-
-/* 📱 মোবাইল রেসপন্সিভনেস 📱 */
-@media (max-width: 768px) {
-    .unique-header {
-        height: 50px; 
-        padding: 0 10px;
-    }
-    
-    .content-spacer {
-        padding-top: 50px; 
-    }
-
-    .logo {
-        font-size: 1.2em; /* মোবাইলে লোগো ছোট */
-    }
-
-    .home-icon-link {
-        font-size: 1.5em; /* মোবাইলে আইকন ছোট */
-    }
+.main-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: -6px;
+    position: relative; 
+    overflow: hidden;
 }
-/*=============Header close============*/
+.sub-title {
+    font-size: 0.7rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+.main-title::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; 
+    height: 100%;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: skewX(-20deg);
+    pointer-events: none;
+    animation: auto-shine 4s ease-in-out infinite;
+}
+@keyframes auto-shine { 
+    0% { left: -100%; } 
+    100% { left: 150%; } 
+}
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.profile-box {
+    display: flex;
+    align-items: center;
+    padding: 5px 8px;
+    border-radius: 20px;
+    cursor: pointer;
+    background: var(--glass-background);
+    position: relative;
+    transition: background-color var(--transition-speed);
+}
+.profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 5px 1px var(--glow-color); 
+}
+.hamburger-menu {
+    width: 30px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0;
+}
+.bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    border-radius: 2px;
+    transition: all var(--transition-speed) ease-in-out;
+    transform-origin: center;
+}
+.hamburger-menu.open .bar1 { transform: translateY(11px) rotate(45deg); }
+.hamburger-menu.open .bar2 { opacity: 0; transform: translateX(-20px); }
+.hamburger-menu.open .bar3 { transform: translateY(-11px) rotate(-45deg); }
 
-/*===========img bg start=============*/
-.main-background {
-  background-image: url('Img/fb.png');
-  background-size: contain; 
-  background-repeat: no-repeat;
-  background-position:center top;
-  min-height: 400px;
-  width: 100%;
+.sidebar {
+    position: fixed;
+    top: var(--header-height);
+    right: 0; 
+    left: auto;
+    height: auto; 
+    max-height: calc(100vh - var(--header-height)); 
+    width: 75%;
+    max-width: 300px;
+    z-index: 999;
+    padding: 0px 0;
+    overflow-y: auto;
+    background: linear-gradient(180deg, var(--sidebar-bg-color) 0%, var(--sidebar-bg-gradient-end) 100%);
+    backdrop-filter: blur(25px); 
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 15px 0 0 15px; 
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6) inset, -8px 0 20px var(--sidebar-shadow-outset);
+    transform: translateX(100%); 
+    transition: transform var(--transition-speed) ease-in-out;
+}
+.sidebar.open { transform: translateX(0); }
+.sidebar ul { list-style: none; padding: 0; margin: 0; }
+.sidebar li { border-bottom: 1px solid var(--sidebar-border-color-light); }
+.sidebar li:last-child { border-bottom: none; }
+.sidebar a {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: var(--sidebar-text-color);
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-family: 'Baloo Da 2', sans-serif;
+    transition: background-color var(--transition-speed), border-left var(--transition-speed);
+}
+.sidebar a:hover {
+    background-color: rgba(0, 123, 255, 0.1); 
+    border-left: 4px solid var(--sidebar-highlight-color); 
+    padding-left: 21px;
 }
 @media (min-width: 768px) {
-  .main-background {
-    background-size: cover; 
-    min-height: 400px; 
-    background-position: center top;
-  }
+.fixed-header { padding: 0 50px; }
+.header-content-wrapper { justify-content: space-between; gap: 20px; }
+.left-section { order: 1; flex-shrink: 0; }
+.right-section{ order: 3; gap: 20px; flex-shrink: 0; }
+.center-section, 
+.desktop-only {
+        display: flex !important; 
+        order: 2; 
+        flex-grow: 1; 
+        align-items: center;
+        justify-content: center; 
+        max-width: 700px; 
+        margin: 0 30px; 
+    }
+.main-nav { 
+        display: flex; 
+        gap: 15px; 
+        align-items: center;
+    }
+.main-nav .nav-link {
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1rem; 
+        white-space: nowrap; 
+        position: relative;
+        transition: all 0.3s ease;
+        color: var(--text-color);
+        background-color: transparent;
+        padding: 4px 8px; 
+        border-radius: 10px; 
+        border: 2px solid var(--glow-color);
+        box-shadow: 0 0 4px 0.5px rgba(0, 0, 0, 0.1);
+    }
+.main-nav .nav-link:hover,
+.main-nav .nav-link.active {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        color: white;
+        border-color: transparent; 
+    }
+    
+ /* ⭐ Home লিঙ্ক (ডিফল্ট/অন্যান্য লিঙ্ক): নীল ফিল ⭐ */
+ .main-nav .nav-link:hover:not(.report-link, .contect-link, .about-link),
+    .main-nav .nav-link.active:not(.report-link, .contect-link, .about-link) {
+        background-color: var(--glow-color); /* নীল (Glow Color) */
+        border-color: var(--glow-color); /* অ্যাক্টিভ হলে বর্ডার রং ফিল কালারের মতো হবে */
+    }
+
+    /* ⭐ About us লিঙ্ক: হালকা সবুজ ফিল ⭐ */
+    .main-nav .nav-link.about-link:hover,
+    .main-nav .nav-link.about-link.active {
+        background-color: #2ECC71; /* সবুজ */
+        border-color: #2ECC71;
+    }
+    
+    /* ⭐ Report Fraud লিঙ্ক: লাল ফিল ⭐ */
+    .main-nav .report-link:hover,
+    .main-nav .report-link.active {
+        background-color: #E74C3C; /* লাল */
+        border-color: #E74C3C;
+    }
+
+    /* ⭐ Contect Us লিঙ্ক: কমলা ফিল ⭐ */
+    .main-nav .contect-link:hover,
+    .main-nav .contect-link.active {
+        background-color: #F39C12; /* কমলা */
+        border-color: #F39C12;
+    }
+
+    /* 4. অন্যান্য ছোট অ্যাডজাস্টমেন্ট (অপরিবর্তিত) */
+    .main-title { font-size: 1.3rem; }
+    .sub-title { font-size: 0.8rem; }
+    .profile-pic { width: 35px; height: 35px; }
+    .hamburger-menu { width: 35px; height: 30px; }
+    .logo-container { 
+      width: 60px;
+      height: 60px; 
+      
+    }
 }
-/*===========img bg close=============*/
+
+/*===========Header close============*/
+
+
 
 /*=========search box start===========*/
-/* search Box design start*/
-.box {
-  width: 90%;
-  max-width: 90%;
-  height: 200px;
-  background: linear-gradient(135deg, #1877F2, #3b5998);
-  border: 2px solid blue;
-  border-radius: 10px;
-  margin: 50px auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: center;
-  gap: 10px; 
+
+/* পুরো পেজের স্টাইল */
+.body-bkash {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-/*box text 1st line*/
-.box h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: white;
-}
-/*box text 2nd line*/
-.box h4 {
-  margin: 0;
-  font-size: 1rem;
-  color: white;
-}
-/* Search Container */
-.search-container {
-  width: 100%;
-  max-width: 500px; /* ensure it stays inside box */
-  position: relative;
+.card-container-bkash {
+  margin-top: 90px;
+  margin-bottom: 90px;
+  margin-left: 20px;
+  padding: 30px 25px; 
+  background-color: #E2136E;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+  max-width: 100%; 
+  width: 90%; 
   box-sizing: border-box;
 }
-/* Input Field */
-.search-container input {
-  width: 100%;
-  padding: 12px 50px 12px 15px; 
-  border: 2px solid #4CAF50; /* unique border color */
-  border-radius: 15px; /* light rounded corners */
-  font-size: 1rem;
-  box-sizing: border-box;
-/* subtle shadow */
-  box-shadow: 0 2px 5px rgba(76, 175, 80, 0.3); /* green shadow */
-  transition: all 0.3s ease;
+.check-fraud-box {
+    text-align: center;
 }
-.search-container input:focus {
-  outline: none;
-  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.5);
-  border-color: #4CAF50;
+.check-fraud-box h1 {
+    font-size: 26px; 
+    color: #FFFFFF; 
+    margin-bottom: 5px;
+    font-weight: 700;
 }
-/* Colored area inside input (right side) */
-.search-container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50px;  
-  height: 100%;
-  background-color: #4CAF50; /* unique color */
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  pointer-events: none;
+.instruction {
+    font-size: 16px;
+    color: #fce4ec; 
+    margin-bottom: 25px;
 }
-/* Search Button / Icon */
-.search-container .search-btn {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  color: white;
-  border: none;
-  width: 50px;
-  height: 100%;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  cursor: pointer;
-  font-size: 1.2rem;
-  z-index: 1;
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 2px solid #FFFFFF; 
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-bottom: 25px;
+    background-color: #FFFFFF; 
 }
-.search-container .search-btn:hover {
-  background-color: rgba(255,255,255,0.2);
+.input-group .icon {
+    color: #E2136E; 
+    font-size: 20px;
+    margin-right: 12px;
 }
-/* Links */
+.input-group input[type="text"] {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    color: #333;
+    background-color: transparent;
+}
+.input-group input[type="text"]::placeholder {
+    color: #999;
+}
+.check-button {
+    width: 100%;
+    padding: 16px;
+    background-color: #FFC312;
+    color: #1e1e1e;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(255, 195, 18, 0.4);
+}
+.check-button:hover {
+    background-color: #e6b100;
+    box-shadow: 0 8px 20px rgba(255, 195, 18, 0.6);
+}
+.check-button i {
+    margin-right: 10px;
+    font-size: 18px;
+}
 .links {
-  width: 100%;
-  text-align: center;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  gap: 15px; /* spacing between links */
-  flex-wrap: wrap; /* responsive wrap */
-  font-family: 'Arial', sans-serif;
-  margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+    flex-wrap: wrap; 
+    margin-top: 20px;
 }
 .links a {
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
-  color: white;
-  transition: color 0.3s ease;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    color: #FFFFFF; 
+    transition: color 0.3s ease;
 }
-/* Hover effect */
 .links a:hover {
-  color: #1dd1a1;
+    color: #FFC312; 
 }
-/* Active / Click effect */
-.links a:active {
-  color: #576574;
+@media (min-width: 480px) {
+    .check-fraud-box {
+        text-align: left; 
+    }
+.card-container-bkash {
+        margin: 80px auto;
+        
+        max-width: 100%;
+        width: 90%; 
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); 
+    }
+.input-group .icon {
+      font-size: 30px;
+    }
+.check-fraud-box h1 {
+     text-align: center;
+     font-size: 40px; 
+    }
+.instruction {
+        text-align: center;
+        font-size: 30px;
+    }
+.input-group {
+        padding: 18px; 
+        width: 60%;
+        margin: 0 auto 25px auto;
+        box-sizing: border-box;
+    }
+.input-group input[type="text"] {
+        font-size: 30px;
+    }
+.check-button {
+        padding: 18px;
+        font-size: 30px;
+        width: 60%;
+        margin: 0 auto;
+    }
+.check-button i.fa-search{
+      font-size: 30px;
+    }
+.links {
+        gap: 25px; 
+        margin: 30px auto 0 auto;
+        width: 60%;
+    }
+    
+.links a {
+        font-size: 30px;
+    }
 }
-/* Responsive adjustments */
-@media (max-width: 500px) {
-  .box {
-    padding: 15px;
-    height: auto; /* allow box to grow on mobile */
-  }
-  .search-container input {
-    padding: 10px 45px 10px 12px;
-  }
- .search-container::after {
-    width: 45px;
-  }
-  .search-container .search-btn {
-    width: 45px;
-    font-size: 1.1rem;
-  }
-  .links a {
-    font-size: 0.9rem;
-    margin: 0 5px;
-  }
-}
-/*============search box close=========*/
+/*===========search box close=========*/
 
-/*=========Advertisement start=========*/
+
+/*========Advertisement start=========*/
 .bd-border-box {
   width: 90%;
-  max-width: 1200px;
+  max-width: 100%;
   height: auto;
   min-height: 200px;
   position: relative;
@@ -256,8 +442,8 @@ body {
   text-align: center;
   box-sizing: border-box;
   z-index: 1;
-  border-radius: 16px;
-  margin: 50px auto;
+  border-radius: 12px;
+  margin: 30px auto;
   background-color: #f0f0f0; 
   aspect-ratio: auto 6 / 1; 
   transform: translateY(-50px);
@@ -268,8 +454,8 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  border: 3px solid #008000;
-  border-radius: 16px;
+  border: 1px solid #008000;
+  border-radius: 12px;
   box-sizing: border-box;
   z-index: -1;
 }
@@ -278,9 +464,9 @@ body {
 .bd-border-box::after {
   content: "";
   position: absolute;
-  inset: -6px;
-  border: 3px solid #ff0000;
-  border-radius: 22px;
+  inset: -3px;
+  border: 1px solid #ff0000;
+  border-radius: 14px;
   box-sizing: border-box;
   z-index: -2;
 }
@@ -288,9 +474,9 @@ body {
 /* বাইরের সবুজ বর্ডার */
 .bd-border-box span {
   position: absolute;
-  inset: -12px;
-  border: 3px solid #008000;
-  border-radius: 28px;
+  inset: -6px;
+  border: 1px solid #008000;
+  border-radius: 16px;
   box-sizing: border-box;
   z-index: -3;
 }
@@ -298,14 +484,14 @@ body {
 /* উপরের ট্যাগ বা লেবেল শেইপ */
 .label-box {
   position: absolute;
-  top: -19px;
+  top: -9px;
   left: 50%;
   transform: translateX(-50%);
   background: #ff0000;
   color: #fff;
-  padding: 6px 25px;
+  padding: 2px 10px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 8px;
   clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   z-index: 1;
@@ -317,60 +503,56 @@ body {
   position: absolute;
   inset: 0;
   background: none;
-  border: 3px solid #008000;
+  border: 1px solid #008000;
   border-radius: 4px;
   clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
   z-index: -1;
 }
 
-/* মোবাইল adjustments */
-@media (max-width: 768px) {
-  .bd-border-box {
-    min-height: 150px;
-    margin: 30px auto;
-  }
 
-  .label-box {
-    padding: 6px 25px;
-    font-size: 14px;
-  }
-}
-/*=========Advertisement close=========*/
+/*========Advertisement close=========*/
 
-/*===========info box start============*/
-
-/* মূল instruction box container */
+/*==========info box start============*/
 .instruction-box {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-    padding: 15px;
-    width: 90%;
-    border: solid blue 1px;
-
-    /* ✅ সেন্টারে রাখার সঠিক উপায় */
-    margin: -40px auto 20px auto; /* top -20px, left/right auto, bottom 20px */
-    margin-bottom: 1px;
-    box-sizing: border-box; /* margin + padding গণনায় রাখবে */
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e0e0e0;
+  padding: 20px;
+  width: 90%;
+  margin: -40px auto 20px auto; 
+  margin-bottom: 1px;
+  box-sizing: border-box; 
 }
-/* হেডার (কীভাবে ব্যবহার করবেন) */
+
+/* ------------------------------------ */
+/* ২. Header স্টাইল */
+/* ------------------------------------ */
 .info-header {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    color: #1e88e5; 
+    
+    /* টেক্সট কালার সাধারণ কালো বা গাঢ় ধূসর */
+    color: #333; 
     font-size: 18px;
     font-weight: bold;
+    border-bottom: 1px solid #eeeeee; /* নিচে হালকা একটি রেখা */
+    padding-bottom: 10px;
 }
 
+/* ✅ Header Icon (বিকাশ রঙের) */
 .info-header .info-icon {
     font-size: 24px;
     margin-right: 8px;
+    color: #D12053; /* বিকাশ রঙের আইকন */
 }
 
-/* নির্দেশিকা তালিকা */
+/* ------------------------------------ */
+/* ৩. Instruction List স্টাইল */
+/* ------------------------------------ */
 .instruction-list {
-    list-style: none;
+    list-style: none; /* ডিফল্ট বুলেট পয়েন্ট সরানো হলো */
     padding: 0;
     margin: 0;
 }
@@ -378,19 +560,34 @@ body {
 /* নির্দেশিকা তালিকার প্রতিটি আইটেম */
 .info-list-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 16px;
     line-height: 1.5;
-    color: #333;
-    justify-content: flex-start; /* লেখা বাম দিকে সারিবদ্ধ */
+    color: #333; /* টেক্সট কালার */
+    justify-content: flex-start;
 }
 
-/* চেকমার্ক আইকন */
-.info-list-item .check-icon {
-    color: #4caf50; 
-    font-size: 20px;
+/* ------------------------------------ */
+/* ৪. সংখ্যাভিত্তিক আইকন (আপনার চাওয়া মতো বিকাশ রঙের শেপ) */
+/* ------------------------------------ */
+.step-icon {
+    display: inline-flex;
+    justify-content: center; 
+    align-items: center; 
+    
+    /* 🔴 শেপ এর কালার: বিকাশ এর কালার */
+    background-color: #D12053; 
+    
+    /* ⚪️ সংখ্যা (1, 2, 3) এর কালার: হাইলাইটিং সাদা */
+    color: #ffffff; 
+    
+    font-weight: bold;
+    border-radius: 4px; /* গোলাকার শেপ */
+    width: 22px; 
+    height: 22px;
+    font-size: 13px; 
     margin-right: 12px;
-    transform: translateY(2px); 
+    flex-shrink: 0; 
 }
 
 /* শেষ আইটেমের নিচে মার্জিন অপসারণ */
@@ -398,157 +595,156 @@ body {
     margin-bottom: 0;
 }
 
-/* মিডিয়া কুয়েরি ফিক্স */
-@media (min-width: 768px) {
+/* মিডিয়া কুয়েরি ফিক্স (আপনার দেওয়া অংশ) */
+@media (min-width: 480px) {
     .instruction-box {
         max-width: 90%;
         width: 100%;
         padding: 20px;
     }
 }
+
+
 /*===========info box close============*/
 
 
 
 /*=======similer tools start==========*/
 
+/*==========================
+✅ Similar Tools Section (Simple & Optimized)
+===========================*/
+
 .view-tools {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background-color: #f0f2f5;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
 }
 
 /* Main Container */
 .tools-container {
-    width: 100%;
-    max-width: 2000px;
+  width: 90%;
+  max-width: 4000px;  /* ✅ সব বড় স্ক্রিনে ঠিক থাকবে */
+  margin: 0 auto;
 }
 
-/* Header Styling - Mobile & Desktop (আগে যেমন ছিল, তেমনই থাকবে) */
+/* Header */
 .tools-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 .tools-header h1 {
-    font-size: 28px;
-    font-weight: 600;
-    color: #333;
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
 }
 
 .grid-icon {
-    margin-right: 6px;
-    color: #007bff;
-    font-size: 14px;
-  
+  margin-right: 6px;
+  color: #007bff;
+  font-size: 14px;
 }
+
+/* Cards */
+.tool-cards-wrapper {
+  display: block; /* মোবাইলে এক কলাম */
+}
+
+.tool-card {
+  display: flex;
+  align-items: flex-start;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #f0f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.card-icon i {
+  font-size: 20px;
+  color: #007bff;
+}
+
 .card-icon img {
   width: 30px;
   height: 30px;
 }
 
-.tool-cards-wrapper {
-    /* মোবাইলে এটি স্বাভাবিক block লেআউট ধরে রাখবে */
-}
-
-.tool-card {
-    display: flex;
-    align-items: flex-start;
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 20px 15px;
-    margin-bottom: 15px; /* মোবাইলে কার্ডগুলোর নিচে গ্যাপ */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e0e0e0;
-    width: auto;
-    
-    text-decoration: none; /* 👈 এটি যোগ করুন */
-    color: inherit; /* এটি নিশ্চিত করে যে ভেতরের লেখা কালোই থাকবে */
-}
-
-.card-icon {
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    background-color: #f0f8ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 15px;
-}
-
-.card-icon i {
-    font-size: 20px;
-    color: #007bff;
-}
-
-.tool-card:nth-child(3) .card-icon { 
-    background-color: #f0fff0;
-}
-
-.tool-card:nth-child(3) .card-icon i {
-    color: #28a745;
-}
-
 .card-content h2 {
-    font-size: 18px;
-    font-weight: 500;
-    color: #333;
-    margin: 0 0 5px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 5px 0;
 }
 
 .card-content p {
-    font-size: 14px;
-    color: #777;
-    margin: 0 0 12px 0;
+  font-size: 14px;
+  color: #777;
+  margin: 0 0 12px 0;
 }
 
+/* Tag Section */
 .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .tag {
-    padding: 4px 10px;
-    background-color: #f7f7f7;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 500;
-    color: #555;
-    text-transform: capitalize;
+  padding: 4px 10px;
+  background-color: #f7f7f7;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #555;
+  text-transform: capitalize;
 }
 
-@media (min-width: 768px) {
-    
-    .tools-container {
-        /* ডেস্কটপে একটি সুন্দর central width দেওয়া হলো */
-        max-width: 900px;
-    }
-    
-    /* 🚨 শুধুমাত্র কার্ড কন্টেইনারে Flexbox প্রয়োগ করা হলো 🚨 */
-    .tool-cards-wrapper {
-        display: flex; 
-        flex-wrap: wrap; 
-        gap: 22px; /* কার্ডগুলোর মধ্যেকার দূরত্ব */
-    }
+/*==================================
+✅ একটাই Media Query (480px - 4000px)
+==================================*/
+@media (min-width: 480px) and (max-width: 4000px) {
+  .tools-container {
+    max-width: 90%;
+    margin: auto;
+  }
 
-    .tool-card {
-        /* দুটি কার্ড এক লাইনে রাখার জন্য width সেট করা হলো */
-        width: 45%; /* 50% width থেকে gap-এর অর্ধেক বাদ */
-        margin-bottom: 10px; /* নিচেও গ্যাপ রাখা হলো */
-    }
+  .tool-cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* কার্ডের মধ্যে সমান ফাঁকা */
+  gap: 15px;
+    
+  }
+
+  .tool-card {
+    flex: 1 1 calc(45% - 15px); /* gap হিসাব করে দুইটা কার্ড ফিট হবে */
+    margin-bottom: 10px;
+  }
 }
 /*=======similer tools close==========*/
-
 
 
 /*==========view tools open===========*/
@@ -573,7 +769,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* হালকা শ্যাডো */
     width: 90%; /* মেনুর চওড়া */
-    max-width: 90vw;
+    max-width: 100%;
     position: absolute;
     top: 80px;
     left: 0;
@@ -585,7 +781,7 @@ body {
     /* অ্যানিমেশন ট্রানজিশন */
     transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s;
 }
-@media (min-width: 768px) {
+@media (min-width: 480px) {
  .attachment-menu {
    width: 90%;
  }
@@ -659,6 +855,7 @@ body {
 }
 /*==========view tools close==========*/
 
+
 /*========fb report from start========*/
 
 :root {
@@ -675,25 +872,37 @@ body {
 
 
 .fb-fraud-report {
-  margin: 0;
-  padding: 20px;
   margin-top: -15px;
   margin-bottom: 15px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  padding-left: 20px; 
+  padding-right: 20px;
   display: flex;
-  justify-content: center; /* 🔥 মাঝখানে রাখবে */
+  justify-content: center;
   align-items: flex-start;
-  overflow-x: hidden; /* স্ক্রল বা হাইড বন্ধ */
   box-sizing: border-box;
+  background-color: #f0f2f5;
 }
+
+
+/* ⭐ বড় স্ক্রিনের জন্য স্পেস বাড়ানো হলো (হেডারের সাথে মিল রেখে) ⭐ */
+
+
+
 .facebook-report-box {
   width: 90%;
-  max-width: 2000px;
+  max-width: 100%;
   background: var(--card-bg);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
   padding: 20px;
   text-align: center;
   margin: 0 auto;
+
+  /* নতুন বর্ডার ও শ্যাডো স্টাইল */
+  border: 1px solid rgba(0, 123, 255, 0.15); 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 
+              0 0 0 3px rgba(0, 123, 255, 0.05); 
 }
 
 .facebook-report-header h1 {
@@ -872,6 +1081,7 @@ input:focus, textarea:focus {
 
 .benefits h2 {
   margin-top: -30px;
+  margin-bottom: 20px;
   font-size: 24px;
   color: #0056b3;
 }
@@ -891,8 +1101,8 @@ input:focus, textarea:focus {
   transition: all 0.4s ease;
   cursor: pointer;
   position: relative;
-  flex: 1 1 300px;
-  max-width: 350px;
+  flex: 1 1 400px;
+  max-width: 90%;
   overflow: visible;
 }
 
@@ -904,7 +1114,6 @@ input:focus, textarea:focus {
   width: 70px;
   height: 70px;
   object-fit: contain;
-  margin-bottom: 10px;
 }
 
 .benefit h3 {
@@ -912,7 +1121,9 @@ input:focus, textarea:focus {
   font-size: 18px;
   margin-bottom: 10px;
 }
-
+.bkash-co{
+  color: #E2136E;
+}
 .cta {
   text-align: center;
   background: #eef3ff;
@@ -970,6 +1181,7 @@ input:focus, textarea:focus {
   font-size: 15px;
   line-height: 1.6;
 }
+
 
 /*========advantage box close=========*/
 
@@ -1443,6 +1655,7 @@ input:focus, textarea:focus {
   align-items: flex-end;
   gap: 40px;
   flex-wrap: nowrap;
+  
 }
 
 .fraudster-card {
@@ -1505,6 +1718,8 @@ h2 {
   display: flex;
   justify-content: space-between;
   margin-bottom: 12px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .btn-fraud {
@@ -1528,7 +1743,9 @@ h2 {
     align-items: center;
     gap: 20px;
   }
-
+.fraudster-card {
+  width: 90%;
+}
   .first {
     transform: none;
   }
@@ -1603,11 +1820,12 @@ h2 {
 }
 /*--======top 3 fraud box close=======*/
 
+
 /*=====bug-report-section start=======*/
 .bug-report-section * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .body1 {
@@ -1616,6 +1834,7 @@ h2 {
     display: flex;
     justify-content: center;
     width: 100%;
+}
 
 .container-bug-report {
     width: 100%;
@@ -1625,21 +1844,33 @@ h2 {
     margin-right: 0;
 }
 
-/* লুকানো ফর্মের জন্য CSS (শুরুতে ফর্মটি লুকানো থাকবে) */
-.hidden {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out; /* ট্রানজিশন যোগ করা হয়েছে */
-}
-
-/* ফর্মটি দৃশ্যমান হলে */
-.visible {
+/* আইকন ইমেজ স্টাইল */
+.bug-icon-img {
+    width: 40px; /* আইকনের সাইজ ছোট করা হয়েছে */
+    height: 40px;
     display: block;
-    opacity: 1;
 }
 
-/* নতুন প্রাথমিক কার্ডের স্টাইল (Initial Card Style) */
+.signal-icon-img {
+    width: 25px;
+    height: 25px;
+    opacity: 0.8;
+}
 
+/* লুকানো/দৃশ্যমান হওয়ার জন্য CSS (স্মুথ স্লাইড) */
+.bug-report-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /* প্রাথমিক প্যাডিং দেওয়া হয়েছে যাতে ট্রানজিশন ঠিকমতো কাজ করে */
+    padding: 20px; 
+    /* ট্রানজিশন যোগ করা হয়েছে */
+    transition: max-height 0.7s ease-in-out, opacity 0.7s ease-in-out; 
+    overflow: hidden; /* স্লাইড ইফেক্টের জন্য জরুরি */
+}
+
+/* শুরুর কার্ড */
 .initial-card {
     background-color: #ffffff;
     border-radius: 10px;
@@ -1647,17 +1878,48 @@ h2 {
     padding: 20px 20px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, max-height 0.7s ease-in-out, opacity 0.7s ease-in-out, padding 0.7s ease-in-out;
     width: 100%;
-  
+    overflow: hidden;
+    max-height: 1000px; /* একটি বড় মান সেট করা হয়েছে */
 }
+
+/* লুকানো অবস্থায় */
+.hidden {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    pointer-events: none; /* লুকানো থাকলে ক্লিক করা যাবে না */
+}
+
+/* দৃশ্যমান অবস্থায় */
+.visible {
+    max-height: 1000px; /* ফর্মের উচ্চতার চেয়ে বড় মান */
+    opacity: 1;
+    padding: 20px; /* .bug-report-card এ সেট করা প্রাথমিক প্যাডিং */
+    pointer-events: auto;
+}
+
+.initial-card.hidden {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.bug-report-card.visible {
+    /* ফর্মটি যদি 600px এর কম হয় তবে এই মান কাজ করবে */
+    max-height: 600px; 
+}
+
+
+/* অন্যান্য স্টাইল (অপরিবর্তিত বা সামান্য পরিবর্তিত) */
 
 .initial-card:hover {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .icon-circle {
-    background-color: #e0f7fa; /* হালকা নীল/সবুজ */
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -1667,27 +1929,35 @@ h2 {
     align-items: center;
     font-size: 30px;
 }
+/* বাগ আইকন ইমেজ স্টাইল (bug-icon.png) */
+.bug-icon-img {
+    /* ছবির চওড়া (Width) */
+    width: 50px; 
+    /* ছবির উচ্চতা (Height) */
+    height: 50px;
+    display: block;
+}
+/* সিগন্যাল আইকন ইমেজ স্টাইল (signal-icon.png) */
+.signal-icon-img {
+    /* ছবির চওড়া */
+    width: 50px;
+    /* ছবির উচ্চতা */
+    height: 50px;
+    opacity: 0.8;
+}
+
 
 .initial-card h2 {
     color: #333333;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin-bottom: 10px;
 }
 
 .initial-card p {
     color: #666666;
-    font-size: 0.9rem;
+    font-size: 1.0rem;
 }
 
-/* রিপোর্ট ফর্মের স্টাইল (Bug Report Form Style) */
-
-.bug-report-card {
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    padding: 20px;
-}
 
 .card-header {
     display: flex;
@@ -1704,13 +1974,6 @@ h2 {
     font-weight: 700;
 }
 
-.signal-icon {
-    width: 20px;
-    height: 20px;
-    background: #5d3ebc; 
-    border-radius: 50%;
-    opacity: 0.8;
-}
 
 /* Input Fields and Labels */
 .form-group {
@@ -1720,19 +1983,21 @@ h2 {
 .form-group label {
     display: block;
     font-size: 0.9rem;
-    color: #666666; 
+    color: #333333; /* টেক্সট কালার গাঢ় করা হয়েছে */
     margin-bottom: 8px;
-    font-weight: 500;
+    font-weight: 700; /* বোল্ড করার জন্য 700 ব্যবহার করা হলো */
 }
 
-.required-text {
-    font-size: 0.8rem;
-    color: #999999;
-    font-weight: 400;
+/* <strong> ট্যাগ ব্যবহারের কারণে ফন্ট ওজন 700 (বোল্ড) নিশ্চিত হবে */
+.form-group label strong {
+    color: #333333; 
+    font-weight: 700;
 }
+/* ... বাকি CSS কোড অপরিবর্তিত থাকবে ... */
+
 
 input[type="text"],
-input[type="email"],
+input[type="tel"], /* email এর পরিবর্তে tel ব্যবহার করা হয়েছে */
 textarea {
     width: 100%;
     padding: 12px;
@@ -1811,6 +2076,11 @@ input::placeholder {
 
 /* Media Query for Desktop/Larger Screens (Responsive) */
 @media (min-width: 600px) {
+    .bug-report-card.visible {
+        /* ডেস্কটপে ফর্মের উচ্চতা বেশি হতে পারে */
+        max-height: 800px; 
+    }
+    
     .bug-report-card {
         padding: 30px;
     }
@@ -1835,11 +2105,85 @@ input::placeholder {
 /*=====bug-report-section close=======*/
 
 
-/*============Foter Start=============*/
-/* ========================================= */
-/* 🚀 Responsive Footer Styles START 🚀 */
-/* ========================================= */
 
+
+
+
+/*==========contact us start==========*/
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+.grid-section {
+  padding-top: 10px ;
+  background: #f9fbff;
+  text-align: center;
+  
+}
+
+.grid-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 90%;
+  margin: auto;
+ padding-bottom: 20px;
+}
+
+.grid-box {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 25px 15px;
+  transition: 0.3s ease;
+  text-decoration:none;
+}
+
+.grid-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.grid-box i {
+  font-size: 50px;
+   margin-bottom: 5px;
+}
+
+.fa-whatsapp {
+  color: #25D366;
+}
+
+.fa-telegram {
+  color: #0088cc;
+}
+.fa-facebook {
+  color: #1877F2;
+}
+.fa-comments {
+  color: #1877F2;
+}
+
+.grid-box h3 {
+  font-size: 18px;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.grid-box p {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+}
+/*==========contact us close==========*/
+
+
+/*============Foter Start=============*/
+/*=========== Footer START===========*/
 .responsive-site-footer {
   width: 100%;
   background-color: #2B2F6B; /* ডিপ ব্লু ব্যাকগ্রাউন্ড */
@@ -1931,7 +2275,7 @@ input::placeholder {
   gap: 10px;
 }
 .branding-info .footer-icon {
-  font-size: 20px;
+  font-size: 30px;
   padding: 10px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
@@ -1963,10 +2307,12 @@ input::placeholder {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.05);
   color: #E8EAF6;
-  font-size: 20px;
+  font-size: 25px;
   align-items: center;
   justify-content: center;
   transition: background 0.3s, transform 0.3s;
+  text-decoration: none;
+
 }
 
 .sicon:hover {
@@ -1992,10 +2338,8 @@ input::placeholder {
   opacity: 0.9;
 }
 
-
-/* ========================================= */
 /* 💻 Desktop (768px এবং তার বেশি) 💻 */
-/* ========================================= */
+
 @media (min-width: 768px) {
   .footer-container {
     justify-content: space-around;
@@ -2035,10 +2379,7 @@ input::placeholder {
   }
 }
 
-
-/* ========================================= */
 /* 📱 Mobile (767px এবং তার কম) 📱 */
-/* ========================================= */
 @media (max-width: 767px) {
   .footer-container {
     flex-direction: column; /* কলামগুলি উল্লম্বভাবে সাজান */
@@ -2062,6 +2403,5 @@ input::placeholder {
     text-align: center;
   }
 }
-
-
+/*===========footer-close=============*/
 /*============Foter Close=============*/

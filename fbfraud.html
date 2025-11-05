@@ -8,36 +8,96 @@
  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;600;700&display=swap" rel="stylesheet"> 
   </head>
   <body>
 <!--============Header Start===========-->
-<header class="unique-header">
-        <a href="index.html" class="home-icon-link">
-    <nav class="nav-links">
-            <i class="fas fa-home"></i> </a>
+<div class="body-header">
+  <header class="fixed-header">
+      
+    <div class="header-content-wrapper">
+        
+        <div class="left-section">
+            <div class="logo-container">
+                <img src="Img/logo1.png" alt="Logo" class="logo">
+            </div>
+            <div class="title-group">
+                <h1 class="main-title">Fraud Checker System</h1>
+                <p class="sub-title">check number-view report-stay safe</p>
+            </div>
+        </div>
+        
+       <div class="center-section desktop-only">
+    <nav class="main-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about" class="nav-link about-link">About us</a> 
+        <a href="/report" class="nav-link report-link">Report Fraud</a>
+        <a href="/report" class="nav-link contect-link">Contect Us</a>
     </nav>
-     <div class="logo">Fraud Check Systems</div>
-</header>
+</div>
+
+        <div class="right-section">
+            <a href="../fbfraud.html" id="loginSignupButton">
+                <div class="profile-box"> 
+                    <img class="profile-pic" src="Img/mridul.png" alt="Login Icon">
+                </div>
+            </a>
+            
+            <button class="hamburger-menu" id="hamburgerMenu">
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+            </button>
+        </div>
+        
+    </div> 
+    </header>
+
+  <aside class="sidebar" id="sidebar">
+      <nav>
+          <ul>
+              <li><a href="../fbfraud.html">Bkash Fraud Checker</a></li>
+              <li><a href="#">Nagad Fraud Checker</a></li>
+              <li><a href="#">Facebook Fraud Checker</a></li>
+              <li><a href="#">Number Fraud Checker</a></li>
+              <li><a href="#">Report Fraud</a></li>
+              <li><a href="#">Contect-Us</a></li>
+              <li><a href="#">Login/Signup</a></li>
+          </ul>
+      </nav>
+  </aside>
+</div>
+<div class="overlay" id="overlay"></div>
+
+
+
+
+
 <!--============Header Close===========-->
 
 <!--==========Search box Start=========-->
-<div class="main-background">
-<br>
-<br>
-<br>
-<div class="box">
-  <h2>Check Facebook Fraud </h2>
-  <h4>search here to check Facebook Fraud</h4>
+ <div class="body-bkash">
+    <div class="card-container-bkash">
+        <div class="check-fraud-box">
+            <h1>Bkash Fraud Checker</h1>
+            <p class="instruction">Enter any Bangladeshi mobile number</p>
 
-  <div class="search-container">
-    <input type="text" placeholder="paste here Facebook profile Link">
-    <button class="search-btn">&#128269;</button> <!-- search icon -->
-  </div>
-  <div class="links">
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <span class="icon"><i class="fas fa-mobile-alt"></i></span>
+                    <input type="text" placeholder="017XXXXXXXXX" pattern="01[3-9]\d{8}" title="A Bangladeshi mobile number (e.g., 017XXXXXXXXX)" required>
+                </div>
+                
+                <button type="submit" class="check-button">
+                    <i class="fas fa-search"></i> Check Report
+                </button>
+            </form>
+ <div class="links">
     <a href="report/report.html">Report Fraud</a> | <a href="login.html">Login/Signup</a>
-  </div>
+        </div>
+    </div>
 </div>
-</div>
+
 <!--==========Search box Close=========-->
 
 <!--========Advertisement start========-->
@@ -49,42 +109,41 @@
 
 <!--========info box start============-->
 <div class="instruction-box">
-        <div class="info-header">
-            <span class="info-icon">ⓘ</span> 
-            <span>নির্ভুল তথ্য পেতে এই নিয়মগুলো মেনে সার্চ করুন, </span>
-        </div>
-
-        <ul class="instruction-list">
-            <li class="info-list-item">
-                <span class="check-icon">✔</span>
-                <span>ফেসবুক অ্যাপ খুলে নাও।</span>
-            </li>
-
-            <li class="info-list-item">
-                <span class="check-icon">✔</span>
-                <span>যেই প্রোফাইল বা পেজের রিপোর্ট দেখতে চাও, সেখানে যাও।</span>
-            </li>
-                <li class="info-list-item">
-                <span class="check-icon">✔</span>
-                <span>উপরের ডান পাশে থাকা তিনটি ডট (⋯) আইকনে ট্যাপ করো। </span>
-            </li>
-
-            <li class="info-list-item">
-                <span class="check-icon">✔</span>
-                <span> নিচে স্ক্রল করলে দেখতে পাবে “Copy link” বা “লিংক কপি করুন” অপশন।
-                 </span>
-            </li>
-                <li class="info-list-item">
-                <span class="check-icon">✔</span>
-                <span>সেখানে ট্যাপ করলেই লিংকটি কপি হয়ে যাবে।
- </span>
-            </li>
-            <li class="info-list-item">
-                <span class="check-icon">✔</span>
-                <span>এখন আমাদের সার্চ বারে পেস্ট করে দিয়ে সার্চ আইকনে ক্লিক করুন। </span>
-            </li>
-        </ul>
+    <div class="info-header">
+        <span class="info-icon">💡</span> 
+        <span>নির্ভুল তথ্য পেতে এই নিয়মগুলো মেনে সার্চ করুন, </span>
     </div>
+
+    <ol class="instruction-list"> 
+        <li class="info-list-item">
+            <span class="step-icon">1</span>
+            <span>যেই বিকাশ নাম্বারটি আপনি চেক করতে চান, সেটি সঠিকভাবে সংগ্রহ করুন।</span>
+        </li>
+
+        <li class="info-list-item">
+            <span class="step-icon">2</span>
+            <span>নাম্বারটি আপনার ফোন বা মেসেজ থেকে কপি (Copy) করে নিন।</span>
+        </li>
+            <li class="info-list-item">
+            <span class="step-icon">3</span>
+            <span>উপরের ডান পাশে থাকা তিনটি ডট (⋯) আইকনে ট্যাপ করো। </span>
+        </li>
+
+        <li class="info-list-item">
+            <span class="step-icon">4</span>
+            <span> নিচে স্ক্রল করলে দেখতে পাবে “Copy link” বা “লিংক কপি করুন” অপশন।</span>
+        </li>
+            <li class="info-list-item">
+            <span class="step-icon">5</span>
+            <span>সেখানে ট্যাপ করলেই লিংকটি কপি হয়ে যাবে।</span>
+        </li>
+        <li class="info-list-item">
+            <span class="step-icon">6</span>
+            <span>এখন আমাদের সার্চ বারে পেস্ট করে দিয়ে সার্চ আইকনে ক্লিক করুন। </span>
+        </li>
+    </ol>
+</div>
+
 
 <!--========info box close============-->
 
@@ -167,6 +226,7 @@
 <!--======view all tools close======-->
 
 
+
 <!--=======related tools start========-->
 <div class="tool-cards-wrapper">
         <a href="index.html" class="tool-card">
@@ -177,9 +237,9 @@
                 <h2>বিকাশ ফ্রড চেকার </h2>
                 <p>বিকাশ ফ্রড নাম্বার চ্যাক করুন </p>
                 <div class="tags">
-                    <span class="tag">#Freeeeee</span>
-                    <span class="tag">#Online</span>
-                    <span class="tag">#Genera</span>
+                    <span class="tag">Click</span>
+                    <span class="tag">Search</span>
+                    <span class="tag">Result</span>
                 </div>
             </div>
  </a>
@@ -206,9 +266,9 @@
                 <h2>পার্সেল ফ্রড চেকার </h2>
                 <p>নাম্বার দিয়ে পার্সেল ফ্রড রিপোর্ট চেক করুন  </p>
                 <div class="tags">
-                    <span class="tag">#Free</span>
-                    <span class="tag">#Online</span>
-                    <span class="tag"># Registrati</span>
+                    <span class="tag">click </span>
+                    <span class="tag">Search</span>
+                    <span class="tag"> Result</span>
                 </div>
             </div>
         </a>
@@ -220,9 +280,9 @@
                 <h2>নাম্বার ফ্রড চেকার</h2>
                 <p>নাম্বার দিয়ে প্রতারণা হয়েছে কিনা চ্যাক করুন</p>
                 <div class="tags">
-                    <span class="tag">Mridul</span>
-                    <span class="tag">#Online</span>
-                    <span class="tag"># Registrati</span>
+                    <span class="tag">Free</span>
+                    <span class="tag">Unlimited</span>
+                    <span class="tag">Search</span>
                 </div>
             </div>
         </a>
@@ -303,23 +363,35 @@
     <h2>🎯 কেন ব্যবহার করবেন?</h2>
     <div class="benefit-box">
 <div class="benefit" onclick  ="toggleDetails(this)">
-        <img src="Img/bkash.png" alt="Safe Transaction">
+        <img src="Img/secure.png" alt="Safe Transaction">
         <h3>১. নিরাপদ লেনদেন</h3>
-        <p>লেনদেনের আগে নাম্বার চেক করে আপনি প্রতারণা থেকে বাঁচতে পারবেন।</p>
+        <p>যেকোনো <span class="bkash-co">বিকাশ</span> নাম্বারে লেনদেন করার আগে এইখানে সার্চ করে রিপোর্ট দেখে নিরাপদ লেনদেন করতে পারেন...</p>
         <div class="details">
-    <p>এখানে ঐ পয়েন্টের বিস্তারিত বর্ণনা লিখবে...</p>
+    <p>যেকোনো <span class="bkash-co">বিকাশ</span> নাম্বারে লেনদেন করার আগে এখন থাকুন আরও সচেতন ও নিরাপদ! 💡
+আমাদের “Fraud Checker System”-এর মাধ্যমে আপনি খুব সহজেই দেখতে পারবেন কোনো বিকাশ নাম্বারে আগে কারো সাথে প্রতারণার রিপোর্ট আছে কিনা✅। 
+
+কেবল লেনদেনের আগে নাম্বারটি সার্চ দিন — সিস্টেম স্বয়ংক্রিয়ভাবে যাচাই করে দেখাবে ওই নাম্বারটি প্রতারণার তালিকায় আছে কিনা।
+এভাবে আপনি সন্দেহজনক নাম্বার বা অ্যাকাউন্টের সঙ্গে লেনদেনের আগে সঠিক সিদ্ধান্ত নিতে পারবেন এবং প্রতারণা থেকে নিজেকে ও অন্যদের সুরক্ষিত রাখতে পারবেন। 🛡️
+
+"মনে রাখুন লেনদেনের আগে যাচাই করুন – প্রতারণা থেকে নিরাপদ থাকুন"✅
+
+</p>
   </div>
 </div>
       <div class="benefit" onclick="toggleDetails(this)">
-        <img src="Img/bkash.png" alt="Check History">
+        <img src="Img/report.png" alt="Check History">
         <h3>২. পূর্বের রিপোর্ট দেখা</h3>
-        <p>যদি কোনো নাম্বার আগে প্রতারণায় যুক্ত থাকে, সেটি আমাদের ডাটাবেজে দেখা যাবে।</p>
+        <p>যেই<span class="bkash-co"> বিকাশ</span> নাম্বারে লেনদেন করতে চাচ্ছেন পূর্বে সেই নাম্বার দিয়ে প্রতারণা করা হয়েছে কিনা দেখতে পারবেন....</p>
         <div class="details">
-    <p>এখানে ঐ পয়েন্টের বিস্তারিত বর্ণনা লিখবে...</p>
+    <p>পূর্বের রিপোর্ট দেখা 📊
+যদি কোনো মোবাইল নাম্বার আগে কোনো প্রতারণামূলক কাজে যুক্ত থাকে, তাহলে সেই তথ্য আমাদের নিরাপদ ডাটাবেজে সংরক্ষিত থাকবে।
+আপনি নাম্বারটি সার্চ করলেই দেখতে পারবেন—ওই নাম্বারের বিরুদ্ধে আগে কোনো ফ্রড রিপোর্ট বা অভিযোগ জমা হয়েছে কিনা।
+এভাবে খুব সহজেই আপনি বুঝতে পারবেন লেনদেনের জন্য নাম্বারটি বিশ্বাসযোগ্য কি না, এবং আগে থেকেই সতর্ক থাকতে পারবেন। 🛡️
+</p>
   </div>
       </div>
       <div class="benefit" onclick="toggleDetails(this)">
-        <img src="Img/bkash.png" alt="Report Fraud">
+        <img src="Img/report1.png" alt="Report Fraud">
         <h3>৩. রিপোর্ট করার সুযোগ</h3>
         <p>আপনি চাইলে প্রতারণার রিপোর্ট করতে পারবেন, যাতে অন্যরাও সতর্ক থাকে।</p>
         <div class="details">
@@ -327,7 +399,7 @@
   </div>
       </div>
       <div class="benefit" onclick="toggleDetails(this)">
-        <img src="Img/bkash.png" alt="Free Service">
+        <img src="Img/free.png" alt="Free Service">
         <h3>৪. সম্পূর্ণ ফ্রি সেবা</h3>
         <p>এই সিস্টেমটি সম্পূর্ণ বিনামূল্যে সবার জন্য উন্মুক্ত।</p>
         <div class="details">
@@ -335,7 +407,7 @@
   </div>
       </div>
       <div class="benefit" onclick="toggleDetails(this)">
-        <img src="Img/bkash.png" alt="Privacy Protected">
+        <img src="Img/safety.png" alt="Privacy Protected">
         <h3>৫. গোপনীয়তা সুরক্ষা</h3>
         <p>আপনার সার্চ ও রিপোর্ট সম্পূর্ণ গোপন রাখা হয়।</p>
         <div class="details">
@@ -343,7 +415,7 @@
   </div>
       </div>
       <div class="benefit" onclick="toggleDetails(this)">
-        <img src="Img/bkash.png" alt="Community Help">
+        <img src="Img/protection.png" alt="Community Help">
         <h3>৬. সচেতন সমাজ গঠন</h3>
         <p>সবাই মিলে রিপোর্ট করলে প্রতারকদের ধরতে সহজ হয়।</p>
     <div class="details">
@@ -361,10 +433,12 @@
 </div>
 <!--=======advantage box close========-->
 
+
+
 <!--==========review box start========-->
    <div class="review-body">
    <div class="header-content">
-    <h1>🛡️ ব্যবহারকারীদের কথায়: ফ্রড চেকার সিস্টেমেস</h1>
+    <h1>🛡️ ব্যবহারকারীদের অভিজ্ঞতা</h1>
     <p class="subtitle">
         সাফল্যের প্রমাণ: ব্যবহারকারীরা কীভাবে আমাদের ফ্রড চেকার সিস্টেমের মাধ্যমে তাদের ব্যবসাকে সুরক্ষিত রাখছেন।
     </p>
@@ -378,10 +452,10 @@
                 
                 <!-- রিভিউকারীর ছবি ও তথ্য (বাম দিকে) -->
                 <div class="reviewer-meta">
-                    <img src="Img/bkash.png" alt="ইউজার ছবি" class="reviewer-avatar">
+                    <img src="Img/mridul.png" alt="ইউজার ছবি" class="reviewer-avatar">
                     <div class="meta-text">
-                        <p class="reviewer-name">সোহান তালুকদার</p>
-                        <p class="reviewer-title">ওয়েব ডিজাইনার</p>
+                        <p class="reviewer-name">ইফাজ উদ্দিন আহমেদ মৃদুল</p>
+                        <p class="reviewer-title">Founder of Fraud Checker system </p>
                     </div>
                 </div>
 
@@ -392,7 +466,7 @@
                         <span class="rating-value">4.5/5.0</span> 
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 
                     </div>
-                    <p class="main-quote">"তাদের পরিষেবা সত্যিই গেম-চেঞ্জার! ডিজাইনটা যেমন চেয়েছিলাম ঠিক তেমনই হয়েছে। দারুণ অভিজ্ঞতা।"</p>
+                    <p class="main-quote">"Our Fraud Checker System helps you stay safe from scams. Always check here before sending any online payment to see if the number or account has been reported as fraudulent."</p>
                     
                     <!-- ড্রয়ার টগল করার বোতাম -->
                     <button class="btn-toggle" onclick="toggleDrawer(this)">
@@ -456,6 +530,7 @@
     
 <!--=======advantage box close========-->
 
+
 <!--======top 3 fraud box start=======-->
 <div class="body-top-fraud">
   <section class="top-fraudsters">
@@ -467,9 +542,9 @@
       <div class="fraudster-card second">
         <div class="badge silver">🥈</div>
         <img src="https://i.pravatar.cc/150?img=22" alt="Fraudster 2" class="avatar" />
-        <h2>Jahirul Islam</h2>
-        <p class="username">@jahir_scammer</p>
-        <p class="reason">Cash on delivery scam - blocked after payment</p>
+        <h2>Hamida Akter</h2>
+        <p class="username">বিকাশ প্রতারক</p>
+        <p class="reason">বিকাশের মাধ্যমে প্রতারণা করে মানুষের কাছ থেকে টাকা হাতিয়ে নেয় </p>
         <div class="meta">
           <span>Reports: <b>87</b></span>
           <span>Last Report: <b>27 Oct 2025</b></span>
@@ -530,49 +605,92 @@
   </section>
 <!--======top 3 fraud box close=======-->
 
-<!--====bug-report-section start======-->
-<div class="bug-report-section">
-<div class="body1">
-<div class="container-bug-report">
-        <div class="initial-card" id="openFormCard">
-            <div class="icon-circle">
-                <span class="bug-icon">🐞</span>
-            </div>
-            <h2>Report a Bug</h2>
-            <p>Click here to report any technical issue or bug you encounter.</p>
-        </div>
+<!--=====bug report section start=====-->
 
-        <div class="bug-report-card hidden" id="bugReportForm">
-            <header class="card-header">
-                <h2>Report a Bug</h2>
-                <span class="signal-icon"></span> 
-            </header>
-            <form class="report-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name"  placeholder="Your Name">
+<div class="bug-report-section">
+    <div class="body1">
+        <div class="container-bug-report">
+            <div class="initial-card slide-up" id="openFormCard">
+                <div class="icon-circle">
+                    <img src="Img/problem.png" alt="Bug Icon" class="bug-icon-img">
                 </div>
-                <div class="form-group">
-                    <label for="email">Mobile Number</label>
-                    <input type="email" id="email" name="email" placeholder="Your valid mobile number">
-                </div>
-                <div class="form-group">
-                    <label for="description">Description <span class="required-text">(required)</span></label>
-                    <textarea id="description" name="description" rows="4" placeholder="Add to cart button not working"></textarea>
-                </div>
-<div class="form-actions">
-<button type="submit" class="btn-submit">Send Bug Report</button>
-                    <button type="button" class="btn-cancel" id="cancelButton">Cancel</button> 
-                </div>
-            </form>
+             <h2>Report Technical Problem</h2>
+  <p>যেকোনো প্রযুক্তিগত সমস্যা বা বাগ রিপোর্ট করতে এখানে ক্লিক করুন। আপনার মতামত গুরুত্বপূর্ণ</p>
+            </div>
+
+            <div class="bug-report-card hidden slide-down" id="bugReportForm">
+                <header class="card-header">
+                    <h2>Report Technical Problem</h2>
+                    <img src="Img/problem.png" alt="Signal Icon" class="signal-icon-img">
+                </header>
+  <form class="report-form">
+  <div class="form-group">
+  <label for="name"><strong>Your Name</strong></label>
+  <input type="text" id="name" name="name" placeholder="আপনার পুরো নাম">
+                    </div>
+  <div class="form-group">
+  <label for="email"><strong>Your Mobile Number</strong></label>
+  <input type="tel" id="mobile" name="mobile" placeholder="আপনার সঠিক মোবাইল নম্বর">
+                    </div>
+  <div class="form-group">
+  <label for="description"><strong>Details Description</strong> <span class="required-text">(Required)</span></label>
+  <textarea id="description" name="description" rows="4" placeholder="যেমন:'যোগ করুন'বাটনটি কাজ করছে না"></textarea>
+                    </div>
+  <div class="form-actions">
+  <button type="submit" class="btn-submit">Submit Report</button>
+  <button type="button" class="btn-cancel" id="cancelButton">Cancel</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-  </div> 
 </div>
+
 
 <!--====bug-report-section close======-->
 
-<!--===========Footer Start===========-->
+
+
+<!--=========contect us Start=========-->
+<section class="grid-section">
+  <h2 class="grid-title">Contact Us</h2>
+
+  <div class="grid-container">
+
+    <!-- Facebook -->
+    <a href="" class="grid-box">
+      <i class="fa-brands fa-facebook"></i>
+      <h3>Facebook</h3>
+      <p>Your data is fully protected and encrypted.</p>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="" class="grid-box">
+      <i class="fa-brands fa-whatsapp"></i>
+      <h3>WhatsApp</h3>
+      <p>Chat with us directly on WhatsApp.</p>
+    </a>
+
+    <!-- Telegram -->
+    <a href="" class="grid-box">
+      <i class="fa-brands fa-telegram"></i>
+      <h3>Telegram</h3>
+      <p>Join our Telegram for instant help.</p>
+    </a>
+
+    <!-- Live Chat -->
+    <a href="#live-chat" class="grid-box">
+      <i class="fa-solid fa-comments"></i>
+      <h3>Live Chat</h3>
+      <p>Analyze data efficiently to detect frauds.</p>
+    </a>
+
+  </div>
+</section>
+
+<!--=========contect us close=========-->
+
+<!--=======FOOTER-start==============-->
 <footer class="responsive-site-footer">
   <div class="footer-container">
     
@@ -603,7 +721,7 @@
       <h4>📧 যোগাযোগ</h4>
       <p>Email: <a href="mailto:support@fraudcheck.com">support@fraudcheck.com</a></p>
       <p>Phone: <a href="tel:+8801311770286">+8801311-770286</a></p>
-      <p>ঠিকানা: Brahmanbaria, Dhaka, Bangladesh</p>
+      <p>Address: Brahmanbaria, Dhaka, Bangladesh</p>
     </div>
   </div>
 
@@ -612,10 +730,7 @@
     <p class="credit">Developed by Efaj Uddin Ahmed Mridul</p>
   </div>
 </footer>
-
-
-<!--==========Footer Close=========-->
-
+<!--==========FOOTER-close ===========-->
 
 <script src="fbfraud.js"></script>
 </body>
