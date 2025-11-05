@@ -1,5 +1,90 @@
+//========Header start=================//
 
-// মূল বাটন এবং মেনু এলিমেন্টগুলো সিলেক্ট করা
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const sidebar = document.getElementById('sidebar');
+    let sidebarTimer; 
+    const AUTO_CLOSE_DELAY = 6000; // 6 সেকেন্ড
+
+    // ২. সাইডবার বন্ধ করার ফাংশন
+    const closeSidebar = () => {
+        if (sidebar.classList.contains('open')) {
+            hamburgerMenu.classList.remove('open');
+            sidebar.classList.remove('open');
+            clearTimeout(sidebarTimer);
+        }
+    };
+    
+    // ৩. টাইমার রিসেট ফাংশন
+    const resetTimer = () => {
+        clearTimeout(sidebarTimer);
+        
+        if (sidebar.classList.contains('open')) {
+             sidebarTimer = setTimeout(closeSidebar, AUTO_CLOSE_DELAY);
+        }
+    };
+
+    // ৪. সাইডবার টগল ফাংশন
+    const toggleSidebar = () => {
+        const isCurrentlyOpen = sidebar.classList.contains('open');
+
+        if (isCurrentlyOpen) {
+            closeSidebar(); 
+        } else {
+            hamburgerMenu.classList.add('open');
+            sidebar.classList.add('open');
+            
+            resetTimer(); 
+        }
+    };
+
+    // ইভেন্ট লিসেনার: হ্যামবার্গার মেনু ক্লিক
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', toggleSidebar);
+    }
+    
+    // ৫. সাইডবারের ভেতরে ক্লিক হলে টাইমার রিসেট হবে 
+    if (sidebar) {
+        sidebar.addEventListener('click', () => {
+            if (sidebar.classList.contains('open')) {
+                 resetTimer();
+            }
+        });
+    }
+
+    // ৬. বাইরের ক্লিকে বন্ধ করার লজিক (Click-Out)
+    document.addEventListener('click', (event) => {
+        const isSidebarOpen = sidebar.classList.contains('open');
+        const isClickedOnSidebar = sidebar.contains(event.target);
+        const isClickedOnHamburger = hamburgerMenu.contains(event.target);
+        if (isSidebarOpen && !isClickedOnSidebar && !isClickedOnHamburger) {
+            closeSidebar(); 
+            return; 
+        }
+    });
+    
+    // ৭. ⭐ মেনু লিঙ্কে ক্লিক লজিক (Active Class Handling) ⭐
+    if (sidebar) {
+        const navLinks = sidebar.querySelectorAll('a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                // ১. সকল লিঙ্ক থেকে 'active' ক্লাসটি সরিয়ে দাও
+                navLinks.forEach(l => l.classList.remove('active'));
+                
+                // ২. বর্তমানে ক্লিক করা লিঙ্কে 'active' ক্লাসটি যুক্ত করো
+                event.currentTarget.classList.add('active');
+                
+                // টাইমার রিসেট করা হবে
+                resetTimer(); 
+            });
+        });
+    }
+});
+//=========header close==============//
+
+
+//==========see all button start=======//
 const mainButton = document.getElementById('main-attachment-button');
 const attachmentMenu = document.getElementById('attachmentMenu');
 
@@ -259,33 +344,53 @@ document.addEventListener("DOMContentLoaded", () => {
 //--======top 3 fraud box close=======-//
 
 
-
 //======bug-report-section start=======//
 
-// যে উপাদানগুলিতে ক্লিক ইভেন্টগুলি যুক্ত করতে হবে সেগুলিকে নির্বাচন করুন
+// প্রয়োজনীয় HTML উপাদানগুলি নির্বাচন করা হয়েছে
 const openFormCard = document.getElementById('openFormCard');
 const bugReportForm = document.getElementById('bugReportForm');
 const cancelButton = document.getElementById('cancelButton');
+const bugReportFormElement = bugReportForm.querySelector('form'); // ফর্ম উপাদানটি নির্বাচন করা হয়েছে
 
 // প্রাথমিক কার্ডে ক্লিক করলে ফর্মটি চালু করার ফাংশন
 openFormCard.addEventListener('click', () => {
-    // প্রাথমিক কার্ডটি লুকানো হবে
+    // প্রাথমিক কার্ডটি লুকানো হবে (স্মুথ স্লাইড-আপ/ফেড-আউট)
     openFormCard.classList.add('hidden');
     openFormCard.classList.remove('visible');
     
-    // রিপোর্ট ফর্মটি দৃশ্যমান হবে
-    bugReportForm.classList.add('visible');
-    bugReportForm.classList.remove('hidden');
+    // রিপোর্ট ফর্মটি দৃশ্যমান হবে (স্মুথ স্লাইড-ডাউন/ফেড-ইন)
+    // ট্রানজিশন শুরু করতে সামান্য ডিলে যোগ করা হয়েছে যাতে CSS পুরোপুরি লোড হয়
+    setTimeout(() => {
+        bugReportForm.classList.add('visible');
+        bugReportForm.classList.remove('hidden');
+    }, 10); 
 });
 
 // Cancel বাটনে ক্লিক করলে ফর্মটি বন্ধ করার ফাংশন
 cancelButton.addEventListener('click', () => {
-    // রিপোর্ট ফর্মটি লুকানো হবে
+    // রিপোর্ট ফর্মটি লুকানো হবে (স্মুথ স্লাইড-আপ/ফেড-আউট)
     bugReportForm.classList.add('hidden');
     bugReportForm.classList.remove('visible');
     
-    // প্রাথমিক কার্ডটি আবার দৃশ্যমান হবে
-    openFormCard.classList.add('visible');
-    openFormCard.classList.remove('hidden');
+    // প্রাথমিক কার্ডটি আবার দৃশ্যমান হবে (স্মুথ স্লাইড-ডাউন/ফেড-ইন)
+    // ট্রানজিশন শেষ হওয়ার জন্য অপেক্ষা করে তারপর কার্ডটি দৃশ্যমান করা হয়েছে
+    setTimeout(() => {
+        openFormCard.classList.add('visible');
+        openFormCard.classList.remove('hidden');
+    }, 500); // CSS ট্রানজিশন (0.7s) এর চেয়ে কিছুটা কম সময় (0.5s)
+});
+
+// ফর্ম সাবমিট ইভেন্ট হ্যান্ডেল করা (ঐচ্ছিক: আপনি চাইলে সার্ভারে ডেটা পাঠাতে পারেন)
+bugReportFormElement.addEventListener('submit', function(event) {
+    event.preventDefault(); // ফর্ম সাবমিট হওয়া আটকানো হলো
+    
+    // এখানে আপনার ফর্ম সাবমিট লজিক (যেমন: AJAX কল) যোগ করুন
+    alert('বাগ রিপোর্ট সফলভাবে পাঠানো হয়েছে! ধন্যবাদ।'); 
+    
+    // ফর্ম সাবমিট হওয়ার পর ফর্মটি বন্ধ করা
+    cancelButton.click(); 
 });
 //======bug-report-section close=======//
+
+
+    
